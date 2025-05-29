@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Socket Documentation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: #f8f9fa;
+        line-height: 1.6;
+      }
+
+      .header {
+        background: #6f42c1;
+        color: white;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .logo::before {
+        content: "🔌";
+        background: white;
+        color: #6f42c1;
+        border-radius: 50%;
+        padding: 4px;
+        font-size: 14px;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .nav-tabs {
+        display: flex;
+        gap: 20px;
+        font-size: 14px;
+      }
+
+      .nav-tabs a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+      }
+
+      .nav-tabs a:hover {
+        opacity: 1;
+      }
+
+      .search-box {
+        position: relative;
+      }
+
+      .search-box input {
+        padding: 6px 30px 6px 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        width: 200px;
+      }
+
+      .search-box::after {
+        content: "⌘K";
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: #666;
+      }
+
+      .login-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: calc(100vh - 60px);
+      }
+
+      .sidebar {
+        width: 280px;
+        background: white;
+        border-right: 1px solid #e9ecef;
+        padding: 20px 0;
+        height: fit-content;
+      }
+
+      .sidebar-section {
+        margin-bottom: 25px;
+      }
+
+      .sidebar-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        padding: 0 20px;
+      }
+
+      .sidebar-item {
+        padding: 8px 20px;
+        font-size: 14px;
+        color: #495057;
+        text-decoration: none;
+        display: block;
+        border-left: 3px solid transparent;
+      }
+
+      .sidebar-item:hover {
+        background: #f8f9fa;
+        color: #6f42c1;
+      }
+
+      .sidebar-item.active {
+        background: #f8f9fa;
+        color: #6f42c1;
+        border-left-color: #6f42c1;
+        font-weight: 500;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 30px 40px;
+        background: white;
+      }
+
+      .content-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .page-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: #212529;
+      }
+
+      .suggest-edit {
+        font-size: 14px;
+        color: #6f42c1;
+        text-decoration: none;
+      }
+
+      .page-subtitle {
+        font-size: 16px;
+        color: #6c757d;
+        margin-bottom: 30px;
+      }
+
+      .intro-text {
+        font-size: 16px;
+        color: #495057;
+        margin-bottom: 20px;
+        line-height: 1.7;
+      }
+
+      .intro-text a {
+        color: #6f42c1;
+        text-decoration: none;
+      }
+
+      .intro-text a:hover {
+        text-decoration: underline;
+      }
+
+      .faq-section {
+        margin-bottom: 40px;
+      }
+
+      .faq-question {
+        font-size: 20px;
+        font-weight: 600;
+        color: #212529;
+        margin-bottom: 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .faq-question::before {
+        content: "▶";
+        font-size: 14px;
+        color: #6f42c1;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-question.expanded::before {
+        transform: rotate(90deg);
+      }
+
+      .faq-answer {
+        font-size: 16px;
+        color: #495057;
+        line-height: 1.7;
+        margin-left: 24px;
+        margin-bottom: 20px;
+      }
+
+      .faq-answer.hidden {
+        display: none;
+      }
+
+      .faq-list {
+        margin: 20px 0;
+        padding-left: 20px;
+      }
+
+      .faq-list li {
+        margin-bottom: 10px;
+        color: #495057;
+      }
+
+      .highlight-box {
+        background: #f8f9fa;
+        border-left: 4px solid #6f42c1;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .code-inline {
+        background: #f1f3f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Monaco", "Consolas", monospace;
+        font-size: 14px;
+        color: #e83e8c;
+      }
+
+      .link {
+        color: #6f42c1;
+        text-decoration: none;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          order: 2;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Socket</div>
+      <div class="header-right">
+        <div class="nav-tabs">
+          <a href="#">🔗 Documentation</a>
+          <a href="#">🎯 API Reference</a>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+        </div>
+        <a href="#" class="login-btn">Log in</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <nav class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-title">Introduction</div>
+          <a href="#" class="sidebar-item">Getting started</a>
+          <a href="#" class="sidebar-item active">FAQ</a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket Alerts</div>
+          <a href="#" class="sidebar-item">Reachability Analysis</a>
+          <a href="#" class="sidebar-item">Ecosystem Support</a>
+          <a href="#" class="sidebar-item">Alert Types</a>
+          <a href="#" class="sidebar-item">Alert Actions</a>
+          <a href="#" class="sidebar-item"
+            >Alert Actions and Triage Functionality</a
+          >
+          <a href="#" class="sidebar-item">Package Scores</a>
+          <a href="#" class="sidebar-item">Manifest File Detection in Socket</a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket Dashboard</div>
+          <a href="#" class="sidebar-item">Organization Alerts</a>
+          <a href="#" class="sidebar-item">Dependency Search</a>
+          <a href="#" class="sidebar-item">Repositories</a>
+          <a href="#" class="sidebar-item">Reports</a>
+          <a href="#" class="sidebar-item"
+            >Security Policy (Default Enabled Alerts)</a
+          >
+          <a href="#" class="sidebar-item">License Policy</a>
+          <a href="#" class="sidebar-item">Threat Feed</a>
+          <a href="#" class="sidebar-item">Package Search</a>
+          <a href="#" class="sidebar-item">Users</a>
+          <a href="#" class="sidebar-item">Settings</a>
+          <a href="#" class="sidebar-item">Integrations</a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Integrations</div>
+          <a href="#" class="sidebar-item">CI/CD Github App/CLI</a>
+          <a href="#" class="sidebar-item">Slack Alerts</a>
+          <a href="#" class="sidebar-item">Vercel Integration</a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket for GitHub</div>
+          <a href="#" class="sidebar-item">Guide to Socket for GitHub</a>
+          <a href="#" class="sidebar-item">Install the App</a>
+          <a href="#" class="sidebar-item">Ignoring pull request alerts</a>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket CLI</div>
+          <a href="#" class="sidebar-item"
+            >What to do when you receive an alert</a
+          >
+          <a href="#" class="sidebar-item">GitHub App Permissions</a>
+          <a href="#" class="sidebar-item">Enable branch protection</a>
+          <a href="#" class="sidebar-item"
+            >Understanding "Act on Your Behalf" Permission</a
+          >
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">CI/CD Integrations</div>
+          <a href="#" class="sidebar-item">Socket for GitHub Actions</a>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <div class="content-header">
+          <h1 class="page-title">FAQ</h1>
+          <a href="#" class="suggest-edit">📝 Suggest Edit</a>
+        </div>
+
+        <div class="page-subtitle">Frequently Asked Questions</div>
+
+        <div class="intro-text">
+          We're working to make Socket the best open source security tool.
+        </div>
+
+        <div class="intro-text">
+          If you have a question,
+          <a href="#" class="link">join the community</a> and ask!
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What is Socket?
+          </div>
+          <div class="faq-answer">
+            Socket is a new security company that can protect your most critical
+            apps from supply chain attacks. We are taking an entirely new
+            approach to one of the hardest problems in security in a segment
+            part of the industry that has historically been obsessed with just
+            reporting on known vulnerabilities.
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Who built Socket?
+          </div>
+          <div class="faq-answer">
+            Socket is built by a team of open source maintainers with over 1
+            billion monthly downloads. Everyone on the Socket team is an open
+            source maintainer. We are all driven to defend the open source
+            ecosystem from supply chain attacks and make it safe for everyone.
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What does Socket do?
+          </div>
+          <div class="faq-answer">
+            Socket's unique because, unlike other tools, it detects and blocks
+            supply chain attacks before they strike, mitigating the worst
+            consequences:
+
+            <ol class="faq-list">
+              <li>
+                <strong>Supply Chain Attack Prevention:</strong> Prevent
+                compromised or hijacked packages from infiltrating your supply
+                chain by monitoring all dependency changes in real-time.
+              </li>
+              <li>
+                <strong>Package Behavior Analysis:</strong> Detect when
+                dependency updates introduce new risky API usage such as
+                network, shell, filesystem, etc.
+              </li>
+              <li>
+                <strong>Comprehensive Protection:</strong> Block malware,
+                typo-squatting, hidden code, misleading packages, permission
+                creep, and <a href="#" class="link">500+ other types</a> in open
+                source code. <a href="#" class="link">See package issues</a>.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How is Socket different from other code scanning tools?
+          </div>
+          <div class="faq-answer">
+            The market is flooded with vulnerability scanners (which find CVEs
+            in your dependencies) and static analysis tools (which analyze your
+            app code).
+
+            <div class="highlight-box">
+              Both of these approaches are less than helpful at detecting supply
+              chain attacks of the sort we've seen exploding in the open source
+              ecosystem.
+            </div>
+
+            <ul class="faq-list">
+              <li>
+                Vulnerability scanning tools mostly look up the packages you're
+                using and compare them to data in the public CVE database such
+                as <a href="#" class="link">NIST</a>. When they find a match,
+                they send you an alert to upgrade to a new version. This is too
+                slow as they active supply chain attacks.
+              </li>
+              <li>
+                Traditional static analysis tools are very SCA (static code
+                analysis) when run on third-party code, and don't provide
+                actionable results. Most developers aren't running static
+                analysis tools on their own code, let alone third-party code.
+              </li>
+            </ul>
+
+            Socket is different. Socket was specifically designed to detect
+            supply chain attacks in your dependencies. We built Socket
+            specifically to help catch supply chain attacks such as those that
+            you may have seen in the news:
+            <span class="code-inline">ua-parser-js</span>,
+            <span class="code-inline">coa</span>,
+            <span class="code-inline">rc</span>,
+            <span class="code-inline">colors</span>,
+            <span class="code-inline">faker</span>,
+            <span class="code-inline">event-stream</span>,
+            <span class="code-inline">eslint-scope</span>, and hundreds more.
+            Unlike a traditional vulnerability scanner, Socket can actually
+            detect an active supply chain attack. Unlike a traditional static
+            analysis tool, Socket provides actionable feedback about dependency
+            risk, instead of hundreds of meaningless alerts.
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How does Socket's code analysis work?
+          </div>
+          <div class="faq-answer">
+            Socket analyzes every package in the npm ecosystem using advanced
+            static analysis techniques to understand package behavior and
+            identify potential security risks.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        const isExpanded = element.classList.contains("expanded");
+
+        if (isExpanded) {
+          element.classList.remove("expanded");
+          answer.classList.add("hidden");
+        } else {
+          element.classList.add("expanded");
+          answer.classList.remove("hidden");
+        }
+      }
+
+      // Initialize - hide all answers initially except the first one
+      document.addEventListener("DOMContentLoaded", function () {
+        const answers = document.querySelectorAll(".faq-answer");
+        answers.forEach((answer, index) => {
+          if (index > 0) {
+            answer.classList.add("hidden");
+          }
+        });
+
+        // Expand first question
+        const firstQuestion = document.querySelector(".faq-question");
+        if (firstQuestion) {
+          firstQuestion.classList.add("expanded");
+        }
+      });
+
+      // Sidebar navigation
+      document.querySelectorAll(".sidebar-item").forEach((item) => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Remove active class from all items
+          document
+            .querySelectorAll(".sidebar-item")
+            .forEach((i) => i.classList.remove("active"));
+
+          // Add active class to clicked item
+          this.classList.add("active");
+        });
+      });
+
+      // Search functionality
+      const searchInput = document.querySelector(".search-box input");
+      searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          alert("Search for: " + this.value);
+        }
+      });
+
+      // Keyboard shortcut for search
+      document.addEventListener("keydown", function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    </script>
+  </body>
+</html>

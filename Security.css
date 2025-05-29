@@ -1,0 +1,940 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f8fafc;
+  padding-top: 120px;
+}
+
+/* Top Banner */
+.top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  background: linear-gradient(90deg, #a259c6 0%, #e26a2c 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.news-icon {
+  font-size: 1.1em;
+  margin-right: 0.2em;
+}
+
+.news-title {
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+
+.news-content a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 2.1rem;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #4b3792;
+  padding: 0.7rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.logo img {
+  height: 32px;
+}
+
+.logoTwo img {
+  height: 100px;
+  width: 100px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+.nav-links .dropdown::after {
+  content: "\25BC";
+  font-size: 0.7rem;
+  margin-left: 0.3rem;
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.nav-links .dropdown:hover::after {
+  color: #7c3aed;
+}
+
+.ecosystem-selector {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.chakra-button.chakra-menu__trigger {
+  background: transparent;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  padding: 0 14px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.chakra-button.chakra-menu__trigger svg {
+  vertical-align: middle;
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 0;
+}
+
+.search-box {
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  height: 44px;
+  font-size: 1rem;
+  flex: 1;
+  border-radius: 0 8px 8px 0;
+  background: transparent;
+}
+
+.search-box::placeholder {
+  color: #666;
+}
+
+.npm-badge {
+  background: #cb3837;
+  color: white;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px 0 0 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+}
+
+.npm-badge svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.npm-badge:hover {
+  background: #b32e2d;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav-right a.install-btn {
+  background: #fff;
+  color: #4b3792;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.nav-right a.install-btn:hover {
+  background: #f3f4f6;
+}
+
+.nav-right a:hover {
+  background: #5c47b6;
+}
+
+.nav-right a.demo-btn {
+  background: #7c3aed;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Dropdown Menu */
+.dropdown-parent {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(80, 64, 160, 0.12),
+    0 1.5px 4px rgba(80, 64, 160, 0.04);
+  padding: 1.5rem 1.2rem;
+  min-width: max-content;
+  z-index: 1001;
+  flex-wrap: wrap;
+  gap: 2rem;
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+.dropdown-parent:hover .dropdown-menu,
+.dropdown-parent:focus-within .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-col {
+  min-width: 180px;
+  max-width: 240px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-col h4 {
+  color: #35285e;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.dropdown-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-col ul li a {
+  color: #4b3792;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+  display: flex;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-col ul li a:hover {
+  background: #f3f4f6;
+  color: #7c3aed;
+}
+
+/* Product Link Styles */
+.product-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.product-link:hover {
+  background: #f3f4f6;
+}
+
+.product-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.product-title {
+  display: block;
+  font-weight: 600;
+  color: #4b3792;
+  margin-bottom: 0.2rem;
+}
+
+.product-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Footer Styles */
+.footer-container {
+  background: #413075;
+  color: white;
+  padding: 60px 0 30px 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: white;
+}
+
+.hiring-badge {
+  background: #7c3aed;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+.newsletter {
+  grid-column: span 2;
+}
+
+.newsletter h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.newsletter p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.newsletter-button {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.newsletter-button:hover {
+  background: #6d28d9;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s;
+}
+
+.social-icon:hover {
+  color: white;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.chakra-link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s;
+}
+
+.chakra-link:hover {
+  color: white;
+}
+
+.chakra-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.windows-app {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.windows-app svg {
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.made-with {
+  margin-left: 210px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+/* Floating Messenger */
+.floating-messenger {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.messenger-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #4094d6;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.floating-messenger:hover .messenger-circle {
+  transform: scale(1.1);
+}
+
+.conversations-visitor-open-icon {
+  width: 32px;
+  height: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  .search-container {
+    margin: 0 0.5rem;
+    max-width: 200px;
+  }
+  .footer-main {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .logo-section,
+  .newsletter {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-banner {
+    font-size: 0.9rem;
+    padding: 0.2rem 0;
+  }
+  .navbar {
+    top: 1.7rem;
+    padding: 0.5rem 0;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .search-container {
+    margin: 0 1rem;
+    max-width: 200px;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .newsletter-input,
+  .newsletter-button {
+    border-radius: 6px;
+  }
+}
+
+/*Main content*/
+.container {
+  max-width: 800px; /* Chiều rộng tối đa của nội dung */
+  margin: 40px auto; /* Căn giữa và tạo khoảng cách trên dưới */
+  padding: 0 20px; /* Padding ngang cho responsive */
+}
+
+/* Header */
+header h1 {
+  font-size: 2.5em; /* Kích thước tiêu đề lớn */
+  font-weight: 600; /* Độ đậm của chữ */
+  color: #000; /* Màu đen đậm */
+  margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
+}
+
+/* Sections */
+.security-section {
+  margin-bottom: 40px; /* Khoảng cách giữa các phần */
+}
+
+.security-section h2 {
+  font-size: 1.8em; /* Kích thước tiêu đề phụ */
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.security-section h3 {
+  font-size: 1.2em; /* Kích thước tiêu đề nhỏ hơn */
+  font-weight: 600;
+  color: #000;
+  margin-top: 30px; /* Khoảng cách trên cho h3 */
+  margin-bottom: 10px;
+}
+
+.security-intro p,
+.security-section p {
+  font-size: 1em; /* Kích thước chữ cho đoạn văn */
+  line-height: 1.6; /* Khoảng cách dòng */
+  margin-bottom: 1em; /* Khoảng cách dưới mỗi đoạn văn */
+  color: #555; /* Màu chữ nhạt hơn một chút */
+}
+
+/* Lists */
+.commitments-list,
+.features-list {
+  list-style: none; /* Bỏ dấu đầu dòng mặc định */
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.commitments-list li,
+.features-list li {
+  position: relative; /* Để định vị dấu chấm tùy chỉnh */
+  padding-left: 20px; /* Khoảng cách cho dấu chấm */
+  margin-bottom: 8px; /* Khoảng cách giữa các mục */
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.commitments-list li::before,
+.features-list li::before {
+  content: "•"; /* Dấu chấm bullet */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000; /* Màu dấu chấm */
+  font-weight: bold;
+  font-size: 1.2em; /* Kích thước dấu chấm */
+}
+
+/* Nested lists for package.json */
+.features-list ul {
+  /* Áp dụng cho ul lồng trong li của features-list */
+  list-style: none;
+  padding-left: 20px; /* Thụt vào cho danh sách con */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.features-list ul li {
+  position: relative;
+  padding-left: 15px; /* Khoảng cách cho dấu gạch ngang */
+  margin-bottom: 5px;
+  font-size: 0.9em; /* Nhỏ hơn một chút */
+  color: #666;
+}
+
+.features-list ul li::before {
+  content: "-"; /* Dấu gạch ngang */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Links */
+a {
+  color: #007bff; /* Màu xanh dương cho link */
+  text-decoration: none; /* Bỏ gạch chân mặc định */
+}
+
+a:hover {
+  text-decoration: underline; /* Hiện gạch chân khi hover */
+}
+
+/* Link Button */
+.link-button {
+  display: inline-block;
+  background-color: #e0e0e0; /* Màu nền xám nhạt */
+  padding: 4px 8px; /* Padding */
+  border-radius: 4px; /* Bo góc */
+  color: #333; /* Màu chữ */
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+.link-button:hover {
+  background-color: #d0d0d0; /* Màu nền đậm hơn khi hover */
+  text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  header h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .security-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .security-section h3 {
+    font-size: 1.1em;
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .security-section h2 {
+    font-size: 1.3em;
+  }
+
+  .security-section p,
+  .commitments-list li,
+  .features-list li {
+    font-size: 0.9em;
+  }
+}
+/* Lists - Continued for multi-level nesting */
+
+.main-security-list {
+  list-style: none; /* Bỏ dấu đầu dòng mặc định */
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.main-security-list > li {
+  /* Áp dụng cho các li cấp 1 trực tiếp */
+  position: relative;
+  padding-left: 20px; /* Khoảng cách cho dấu chấm */
+  margin-bottom: 15px; /* Khoảng cách lớn hơn giữa các mục chính */
+  font-size: 1em; /* Kích thước chữ cho mục chính */
+  line-height: 1.6;
+  color: #333; /* Màu chữ cho mục chính */
+}
+
+.main-security-list > li::before {
+  content: "•"; /* Dấu chấm bullet */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000; /* Màu dấu chấm */
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.nested-security-list {
+  list-style: none;
+  padding-left: 20px; /* Thụt vào cho danh sách con cấp 2 */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.nested-security-list li {
+  position: relative;
+  padding-left: 15px; /* Khoảng cách cho dấu gạch ngang */
+  margin-bottom: 8px; /* Khoảng cách giữa các mục con */
+  font-size: 0.95em; /* Nhỏ hơn một chút so với mục chính */
+  line-height: 1.5;
+  color: #555;
+}
+
+.nested-security-list li::before {
+  content: "-"; /* Dấu gạch ngang */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  font-weight: bold;
+}
+
+/* For the third level of nesting (e.g., under Strict-Transport-Security) */
+.sub-nested-security-list {
+  list-style: none;
+  padding-left: 15px; /* Thụt vào thêm cho danh sách con cấp 3 */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.sub-nested-security-list li {
+  position: relative;
+  padding-left: 15px; /* Khoảng cách cho dấu gạch ngang */
+  margin-bottom: 5px;
+  font-size: 0.9em; /* Nhỏ hơn nữa */
+  line-height: 1.4;
+  color: #666;
+}
+
+.sub-nested-security-list li::before {
+  content: "-"; /* Dấu gạch ngang */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Specific style for h3 inside nested-security-list */
+.nested-security-list li h3 {
+  display: inline; /* Để h3 nằm trên cùng dòng với text kế tiếp nếu có */
+  font-size: 0.95em; /* Giữ kích thước nhỏ như li */
+  font-weight: 600; /* Đậm hơn */
+  color: #333; /* Màu đậm hơn */
+  margin: 0; /* Bỏ margin mặc định của h3 */
+}
+/* New List Style for Investors */
+.investors-list {
+  list-style: none; /* Bỏ dấu đầu dòng mặc định */
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.investors-list li {
+  position: relative;
+  padding-left: 0; /* Không có thụt vào cho dấu chấm */
+  margin-bottom: 5px; /* Khoảng cách giữa các mục */
+  font-size: 1em; /* Kích thước chữ */
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Các đoạn CSS đã có từ trước (commitments-list, features-list, main-security-list, nested-security-list, sub-nested-security-list)
+   sẽ không cần chỉnh sửa gì thêm vì chúng đã đủ linh hoạt. */
+
+.ecosystem-selector svg {
+  vertical-align: middle;
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+}
+
+@media (max-width: 900px) {
+  .dropdown-menu {
+    flex-direction: column;
+    min-width: 320px;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+  .dropdown-col {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dropdown-menu {
+    min-width: 180px;
+    padding: 0.5rem 0.2rem;
+    font-size: 0.9rem;
+  }
+}
