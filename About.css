@@ -290,11 +290,45 @@ body {
     gap: 40px;
   }
 }
+.top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  background: linear-gradient(90deg, #a259c6 0%, #e26a2c 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.news-icon {
+  font-size: 1.1em;
+  margin-right: 0.2em;
+}
+
+.news-title {
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+
+.news-content a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+}
 
 /* Navbar */
 .navbar {
   position: fixed;
-  top: 40px;
+  top: 2.1rem;
   left: 0;
   right: 0;
   background: #4b3792;
@@ -394,6 +428,7 @@ body {
 }
 
 .search-box {
+  width: 300px;
   border: none;
   outline: none;
   padding: 0 16px;
@@ -1255,37 +1290,3 @@ body {
 }
 
 /* --- HEADER & TOP-BANNER FROM LOVE.CSS --- */
-.top-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1100;
-  background: linear-gradient(90deg, #a259c6 0%, #e26a2c 100%);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.3rem 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  letter-spacing: 0.01em;
-}
-
-.news-icon {
-  font-size: 1.1em;
-  margin-right: 0.2em;
-}
-
-.news-title {
-  font-weight: bold;
-  margin-right: 0.3em;
-}
-
-.news-content a {
-  color: #fff;
-  text-decoration: underline;
-  font-weight: 400;
-}

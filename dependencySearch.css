@@ -347,7 +347,7 @@ body {
 
 .news-content a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 400;
 }
 
@@ -364,9 +364,8 @@ body {
 }
 
 .nav-container {
-  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;

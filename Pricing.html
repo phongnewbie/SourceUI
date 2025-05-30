@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Socket Changelog</title>
-    <link rel="stylesheet" href="ChangeLog.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Pricing.css" />
   </head>
   <body>
     <div class="top-banner">
@@ -665,122 +665,495 @@
         </div>
       </div>
     </nav>
-    <!-- Header -->
-    <div class="header">
-      <div class="changelog-badge">Changelog</div>
-      <h1>What's new at Socket?</h1>
-      <div class="header-icons">
-        <div class="rss-icon">🔗</div>
-        <div class="share-icon">📤</div>
+
+    <div class="pricing-wrapper">
+      <div class="main-header">
+        <h1>Developer security for teams of all sizes</h1>
+        <p>Simple, transparent pricing that grows with your team.</p>
+
+        <div class="billing-toggle-wrapper">
+          <div class="billing-switcher">
+            <div
+              class="billing-choice selected"
+              onclick="switchBilling('monthly')"
+            >
+              Monthly
+            </div>
+            <div class="billing-choice" onclick="switchBilling('yearly')">
+              Yearly
+            </div>
+          </div>
+          <div class="savings-label">-20%</div>
+        </div>
       </div>
+
+      <div class="plans-container">
+        <!-- Free Plan -->
+        <div class="plan-box">
+          <div class="tier-title">Free</div>
+          <div class="tier-cost">$0<span> per month, per developer</span></div>
+          <div class="tier-info">
+            For open-source projects, individuals, and small teams.
+          </div>
+          <button class="action-btn btn-outline">Get started for free</button>
+
+          <div class="benefits-area">
+            <h3>All features in Free, plus:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Visibility.</strong> Detect 70+
+                  <span class="emphasized-text">red flags</span> (including
+                  malware) in open source dependencies</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Proactive supply chain protection.</strong> Warn
+                  developers when risky dependencies are being introduced</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Content-based analysis.</strong> Detect malicious
+                  code and risky behavior (e.g. network) in your
+                  dependencies</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Educate developers.</strong> Catch risky changes and
+                  give developers a "speed bump" to encourage good
+                  behavior</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Unlimited public repos.</strong> Limited to 1 private
+                  repo</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Team Plan -->
+        <div class="plan-box">
+          <div class="tier-title">Team</div>
+          <div class="tier-cost">$8<span> per month, per developer</span></div>
+          <div class="tier-info">
+            For growing teams with enhanced scale, security, and support.
+          </div>
+          <button class="action-btn btn-filled">Buy this plan</button>
+
+          <div class="benefits-area">
+            <h3>All features in Free, plus:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span><strong>Unlimited private repos.</strong></span>
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span><strong>Up to 25 developers.</strong></span>
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Block bad dependencies.</strong> Prevent risky
+                  dependencies from entering your codebase with
+                  <span class="emphasized-text">blocking rules</span></span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Org-Wide Dependency Search.</strong> Query for any
+                  dependency across your organization</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Slack Alerts.</strong> Get notified when new malware
+                  or vulnerabilities are found</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span><strong>Dedicated support.</strong> 8×5 Email</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="plan-box premium">
+          <div class="tier-header">
+            <div class="tier-title">Custom</div>
+            <div class="tier-badge">Enterprise + Business</div>
+            <div class="tier-info">
+              Unlimited scale, self hosting, and priority support for large
+              teams.
+            </div>
+            <button class="action-btn btn-outline">Schedule demo</button>
+          </div>
+
+          <div class="benefits-area">
+            <h3>All features in Team, plus:</h3>
+            <ul class="benefits-list">
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Access to all languages,</strong> including support
+                  for
+                  <span class="emphasized-text"
+                    >enterprise Java (coming soon)</span
+                  ></span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Enterprise security.</strong> Single Sign-on
+                  (SSO/SAML), Role-based Access Control</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>On premise.</strong> Run Socket on-premises or in
+                  your own cloud environment</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Unlimited REST API.</strong> Full-featured
+                  enterprise-ready API supporting token scopes, and all product
+                  functionality</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Migration assistance.</strong> We will help you
+                  migrate from your current solution</span
+                >
+              </li>
+              <li class="benefit-row">
+                <div class="check-mark"></div>
+                <span
+                  ><strong>Priority support with SLA.</strong> Email and
+                  dedicated private Slack channel</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <section class="brands-section">
+        <div class="brands-container">
+          <div class="brands-slider">
+            <div class="brands-track">
+              <div class="brand-item">
+                <img src="" alt="Google" />
+              </div>
+              <div class="brand-item">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1200px-IBM_logo.svg.png"
+                  alt="IBM"
+                />
+              </div>
+              <div class="brand-item">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1200px-Microsoft_logo_%282012%29.svg.png"
+                  alt="Microsoft"
+                />
+              </div>
+              <div class="brand-item">
+                <img
+                  src="https://a.sfdcstatic.com/shared/images/c360-nav/salesforce-with-type-logo.svg"
+                  alt="Salesforce"
+                />
+              </div>
+              <div class="brand-item">
+                <img
+                  src="https://a0.awsstatic.com/libra-css/images/logos/aws_smile-header-desktop-en-white_59x35.png"
+                  alt="AWS"
+                />
+              </div>
+              <div class="brand-item">
+                <img
+                  src="https://www.adobe.com/federal/assets/svgs/adobe-logo.svg"
+                  alt="Adobe"
+                />
+              </div>
+              <!-- Repeat as needed for more brands -->
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+    <div class="phoenix-comparison-wrapper">
+      <div class="phoenix-hero-banner">
+        <h1>Feature Comparison</h1>
+      </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-      <div class="container">
-        <div class="timeline">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item improvement">
-            <div class="timeline-date">MAY 21</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">Improved GitHub App Visibility</h2>
-              <div class="timeline-description">
-                <p>
-                  Socket now creates a GitHub check run on every commit
-                  processed by our GitHub app, regardless of whether manifest
-                  files are present.
-                </p>
-                <p>
-                  This ensures consistent visibility across all commits, making
-                  it easier to confirm that Socket is monitoring your
-                  repositories and PRs, even when no manifests are detected.
-                </p>
-              </div>
+      <div class="phoenix-pricing-nav">
+        <div class="phoenix-plan-column">
+          <div class="phoenix-plan-label">Free</div>
+          <button class="phoenix-cta-btn phoenix-btn-neutral">
+            Get started
+          </button>
+        </div>
+        <div class="phoenix-plan-column">
+          <div class="phoenix-plan-label">Team</div>
+          <button class="phoenix-cta-btn phoenix-btn-premium">
+            Get started
+          </button>
+        </div>
+        <div class="phoenix-plan-column">
+          <div class="phoenix-plan-label">Enterprise + Business</div>
+          <button class="phoenix-cta-btn phoenix-btn-enterprise">
+            Get started
+          </button>
+        </div>
+      </div>
+
+      <div class="phoenix-features-grid">
+        <!-- Essentials Section -->
+        <div class="phoenix-category-divider">
+          <div class="phoenix-category-name">Essentials</div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Developers <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-detail-text">
+              Up to 5 developers
+            </div>
+            <div class="phoenix-plan-value phoenix-detail-text">
+              Up to 25 developers
+            </div>
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited
             </div>
           </div>
+        </div>
 
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item improvement">
-            <div class="timeline-date">MAY 20</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">Improved Threat Feed Syncing</h2>
-              <div class="timeline-description">
-                <p>
-                  We've enhanced the threat feed API with a new endpoint that
-                  makes it easier to sync new and updated threats as they are
-                  updated and discovered.
-                </p>
-              </div>
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Language support <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-tech-stack">
+              JavaScript, TypeScript, Python, Go
+            </div>
+            <div class="phoenix-plan-value phoenix-tech-stack">
+              JavaScript, TypeScript, Python, Go
+            </div>
+            <div class="phoenix-plan-value phoenix-tech-stack">
+              JavaScript, TypeScript, Python, Go, Enterprise Java (coming soon)
             </div>
           </div>
+        </div>
 
-          <!-- Timeline Item 3 -->
-          <div class="timeline-item improvement">
-            <div class="timeline-date">MAY 08</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">
-                Smarter Grouping for Artifact Alerts
-              </h2>
-              <div class="timeline-description">
-                <p>
-                  We've significantly reduced the number of capability alerts—by
-                  as much as 50% in some cases—through smarter alert grouping.
-                  Instead of generating one alert per file location, related
-                  alerts are now collapsed into a single entry, especially in
-                  ecosystems like .NET where duplicate alert noise was common.
-                </p>
-                <p>
-                  This makes triaging faster, the UI cleaner, and helps your
-                  team focus on what matters most. No changes are needed on your
-                  end—just enjoy the quieter signal.
-                </p>
-              </div>
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Public repositories <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited
+            </div>
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited
+            </div>
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited
             </div>
           </div>
+        </div>
 
-          <!-- Timeline Item 4 -->
-          <div class="timeline-item deprecation">
-            <div class="timeline-date">MAY 07</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">Deprecated Old Analytics Endpoints</h2>
-              <div class="timeline-description">
-                <p>
-                  We've officially deprecated the legacy repository and
-                  organization analytics endpoints. Going forward, please use
-                  the <span class="highlight">historical snapshots API</span>,
-                  which offers more accurate and scalable access to analytics
-                  data.
-                </p>
-              </div>
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Private repositories <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-detail-text">
+              1 private repository
+            </div>
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited
+            </div>
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited
             </div>
           </div>
+        </div>
 
-          <!-- Timeline Item 5 -->
-          <div class="timeline-item beta">
-            <div class="timeline-date">MAY 06</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">
-                Faster, Smarter Org Alerts
-                <span class="beta-badge">Beta</span>
-              </h2>
-              <div class="timeline-description">
-                <p>
-                  We've rebuilt the Organization Alerts (Beta) page from the
-                  ground up to dramatically improve performance, especially for
-                  large orgs. Thanks to server-side filtering and search powered
-                  by our analytics backend, the page now loads in seconds even
-                  for orgs with hundreds of thousands of alerts.
-                </p>
-                <p>
-                  The overhauled experience currently sits behind feature flags,
-                  which we'll be rolling out to customers soon. Stay tuned!
-                </p>
-              </div>
+        <!-- Visibility Section -->
+        <div class="phoenix-category-divider">
+          <div class="phoenix-category-name">Visibility</div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Content-based Dependency Analysis
+            <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Known Vulnerabilities (CVEs)
+            <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Project Health Report <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Compare packages <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Organization-Wide Dependency Search
+            <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-detail-text">
+              Direct deps
+            </div>
+            <div class="phoenix-plan-value phoenix-detail-text">
+              Direct + transitive deps
+            </div>
+            <div class="phoenix-plan-value phoenix-detail-text">
+              Direct + transitive deps
+            </div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            SBOM dependencies <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-detail-text">
+              1,000 dependencies
+            </div>
+            <div class="phoenix-plan-value phoenix-detail-text">
+              1,000,000 dependencies
+            </div>
+            <div class="phoenix-plan-value phoenix-detail-text">
+              1,000,000 dependencies
+            </div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Threat feed <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-detail-text">30 items</div>
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited access
+            </div>
+            <div class="phoenix-plan-value phoenix-unlimited-badge">
+              Unlimited access
+            </div>
+          </div>
+        </div>
+
+        <!-- Prevention & Enforcement Section -->
+        <div class="phoenix-category-divider">
+          <div class="phoenix-category-name">Prevention & Enforcement</div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Educate developers about security risks
+            <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Developer speed bumps <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+            <div class="phoenix-plan-value phoenix-success-mark">✓</div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Block risky dependencies
+            <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-restricted-badge">Warn</div>
+            <div class="phoenix-plan-value phoenix-restricted-badge">Warn</div>
+            <div class="phoenix-plan-value phoenix-detail-text">
+              Warn + Block
+            </div>
+          </div>
+        </div>
+
+        <div class="phoenix-feature-line">
+          <div class="phoenix-feature-label">
+            Prevent attacks during local development ("safe npm")
+            <span class="phoenix-help-indicator">?</span>
+          </div>
+          <div class="phoenix-value-container">
+            <div class="phoenix-plan-value phoenix-detail-text">Per repo</div>
+            <div class="phoenix-plan-value phoenix-detail-text">Per repo</div>
+            <div class="phoenix-plan-value phoenix-detail-text">
+              Full machine protection
             </div>
           </div>
         </div>
@@ -977,51 +1350,5 @@
         </svg>
       </span>
     </a>
-    <script>
-      // Add smooth scroll animation when timeline items come into view
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, observerOptions);
-
-      // Initialize timeline items with fade-in animation
-      document.querySelectorAll(".timeline-item").forEach((item, index) => {
-        item.style.opacity = "0";
-        item.style.transform = "translateY(20px)";
-        item.style.transition = `opacity 0.6s ease ${
-          index * 0.1
-        }s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(item);
-      });
-
-      // Add click handlers for header icons
-      document.querySelector(".rss-icon").addEventListener("click", () => {
-        alert("RSS feed feature - would connect to actual RSS endpoint");
-      });
-
-      document.querySelector(".share-icon").addEventListener("click", () => {
-        if (navigator.share) {
-          navigator.share({
-            title: "Socket Changelog",
-            text: "Check out what's new at Socket!",
-            url: window.location.href,
-          });
-        } else {
-          // Fallback for browsers that don't support Web Share API
-          navigator.clipboard.writeText(window.location.href).then(() => {
-            alert("URL copied to clipboard!");
-          });
-        }
-      });
-    </script>
   </body>
 </html>

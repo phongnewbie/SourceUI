@@ -93,7 +93,7 @@ if (cubeContainer) {
   scene.add(blockGroup); // Add the group to the scene
 
   const whiteMaterial = new THREE.MeshPhongMaterial({
-    color: 0xffffff,
+    color: 0x6366f1, // Indigo color
     shininess: 100,
     specular: 0x333333,
     transparent: true,
@@ -101,14 +101,14 @@ if (cubeContainer) {
   });
   // Small block materials start fully transparent
   const purpleMaterial = new THREE.MeshPhongMaterial({
-    color: 0x8b5a9b,
+    color: 0x8b5cf6, // Purple color
     shininess: 100,
     specular: 0x333333,
     transparent: true,
     opacity: 0,
   });
   const lightPurpleMaterial = new THREE.MeshPhongMaterial({
-    color: 0xb794a8,
+    color: 0xec4899, // Pink color
     shininess: 100,
     specular: 0x333333,
     transparent: true,
@@ -116,15 +116,15 @@ if (cubeContainer) {
   });
 
   // --- Create the initial large white block ---
-  const mainBlockGeometry = new THREE.BoxGeometry(1.8, 1.8, 1.8);
+  const mainBlockGeometry = new THREE.BoxGeometry(5.5, 5.5, 5.5);
   const mainBlock = new THREE.Mesh(mainBlockGeometry, whiteMaterial);
   blockGroup.add(mainBlock);
 
   // --- Create smaller blocks for dissolution (initially transparent) ---
   const smallBlocks = [];
   const gridSize = 5; // Number of blocks along each axis
-  const smallBlockSize = 0.4;
-  const spacing = 0.45;
+  const smallBlockSize = 2;
+  const spacing = 0.75;
 
   for (let x = 0; x < gridSize; x++) {
     for (let y = 0; y < gridSize; y++) {
@@ -162,7 +162,7 @@ if (cubeContainer) {
   const totalEffectDuration = 8000; // Total time for the main block to fade and small blocks to dissolve (8 seconds)
   const mainBlockFadeDuration = 2000; // Main block fades out in the first 2 seconds of the effect
 
-  camera.position.z = 5; // Adjusted camera position
+  camera.position.z = 8;
   blockGroup.rotation.set(0.3, -0.4, 0); // Initial rotation
 
   // Mouse Interaction variables

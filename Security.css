@@ -42,7 +42,7 @@ body {
 
 .news-content a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 400;
 }
 
@@ -59,7 +59,6 @@ body {
 }
 
 .nav-container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -157,6 +156,7 @@ body {
 }
 
 .search-box {
+  width: 350px;
   border: none;
   outline: none;
   padding: 0 16px;

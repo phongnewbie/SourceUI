@@ -39,7 +39,6 @@ body {
 }
 
 .nav-container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -113,6 +112,7 @@ body {
 }
 
 .search-box {
+  width: 350px;
   border: none;
   outline: none;
   padding: 0 16px;
@@ -422,7 +422,6 @@ body {
 
 /* Header styles */
 .nav-container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
   display: flex;
@@ -498,8 +497,8 @@ body {
   right: 8%;
   top: 50%;
   transform: translateY(-50%);
-  width: 120px;
-  height: 120px;
+  width: 300px;
+  height: 300px;
   background: linear-gradient(45deg, #8b5a9b, #b794a8);
   border-radius: 12px;
   opacity: 0.8;
@@ -743,21 +742,25 @@ body {
 
 /* Three.js Container */
 #cube-container {
-  position: absolute;
-  right: 8%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 400px;
+  position: relative;
+  width: 100%;
   height: 400px;
-  z-index: 1;
+  color: linear-gradient(
+    135deg,
+    rgb(99, 102, 241) 0%,
+    rgb(139, 92, 246) 50%,
+    rgb(236, 72, 153) 100%
+  );
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #cube-container canvas {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Technology Logos Section */
@@ -2059,17 +2062,13 @@ body {
 .social-links a {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
+
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   transition: background 0.3s ease;
-}
-
-.social-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 .footer-links {
@@ -2518,7 +2517,7 @@ body {
 }
 .news-content a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 400;
 }
 

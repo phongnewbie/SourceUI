@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Socket Changelog</title>
-    <link rel="stylesheet" href="ChangeLog.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="signin.css" />
   </head>
   <body>
     <div class="top-banner">
@@ -665,127 +665,58 @@
         </div>
       </div>
     </nav>
-    <!-- Header -->
-    <div class="header">
-      <div class="changelog-badge">Changelog</div>
-      <h1>What's new at Socket?</h1>
-      <div class="header-icons">
-        <div class="rss-icon">🔗</div>
-        <div class="share-icon">📤</div>
+    <div class="login-container">
+      <h1 class="logos">Sign in to Socket</h1>
+
+      <div class="signup-link">
+        Don't have an account?
+        <a href="#" onclick="alert('Redirect to signup page')"
+          >Sign up for free</a
+        >
       </div>
-    </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-      <div class="container">
-        <div class="timeline">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item improvement">
-            <div class="timeline-date">MAY 21</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">Improved GitHub App Visibility</h2>
-              <div class="timeline-description">
-                <p>
-                  Socket now creates a GitHub check run on every commit
-                  processed by our GitHub app, regardless of whether manifest
-                  files are present.
-                </p>
-                <p>
-                  This ensures consistent visibility across all commits, making
-                  it easier to confirm that Socket is monitoring your
-                  repositories and PRs, even when no manifests are detected.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item improvement">
-            <div class="timeline-date">MAY 20</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">Improved Threat Feed Syncing</h2>
-              <div class="timeline-description">
-                <p>
-                  We've enhanced the threat feed API with a new endpoint that
-                  makes it easier to sync new and updated threats as they are
-                  updated and discovered.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline Item 3 -->
-          <div class="timeline-item improvement">
-            <div class="timeline-date">MAY 08</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">
-                Smarter Grouping for Artifact Alerts
-              </h2>
-              <div class="timeline-description">
-                <p>
-                  We've significantly reduced the number of capability alerts—by
-                  as much as 50% in some cases—through smarter alert grouping.
-                  Instead of generating one alert per file location, related
-                  alerts are now collapsed into a single entry, especially in
-                  ecosystems like .NET where duplicate alert noise was common.
-                </p>
-                <p>
-                  This makes triaging faster, the UI cleaner, and helps your
-                  team focus on what matters most. No changes are needed on your
-                  end—just enjoy the quieter signal.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline Item 4 -->
-          <div class="timeline-item deprecation">
-            <div class="timeline-date">MAY 07</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">Deprecated Old Analytics Endpoints</h2>
-              <div class="timeline-description">
-                <p>
-                  We've officially deprecated the legacy repository and
-                  organization analytics endpoints. Going forward, please use
-                  the <span class="highlight">historical snapshots API</span>,
-                  which offers more accurate and scalable access to analytics
-                  data.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline Item 5 -->
-          <div class="timeline-item beta">
-            <div class="timeline-date">MAY 06</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h2 class="timeline-title">
-                Faster, Smarter Org Alerts
-                <span class="beta-badge">Beta</span>
-              </h2>
-              <div class="timeline-description">
-                <p>
-                  We've rebuilt the Organization Alerts (Beta) page from the
-                  ground up to dramatically improve performance, especially for
-                  large orgs. Thanks to server-side filtering and search powered
-                  by our analytics backend, the page now loads in seconds even
-                  for orgs with hundreds of thousands of alerts.
-                </p>
-                <p>
-                  The overhauled experience currently sits behind feature flags,
-                  which we'll be rolling out to customers soon. Stay tuned!
-                </p>
-              </div>
-            </div>
-          </div>
+      <form>
+        <div class="form-group">
+          <input type="email" placeholder="Enter your email" required />
         </div>
+
+        <button type="submit" class="btn btn-primary">
+          Continue with email
+        </button>
+      </form>
+
+      <div class="divider">
+        <span>or</span>
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        onclick="alert('GitHub OAuth integration')"
+      >
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+          />
+        </svg>
+        Continue with GitHub
+      </button>
+
+      <button class="btn btn-secondary" onclick="alert('SSO integration')">
+        <svg class="sso-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+          />
+        </svg>
+        Continue with SSO
+      </button>
+
+      <div class="terms">
+        By continuing, you agree to our
+        <a href="#" onclick="alert('Terms of Service')">Terms</a> and
+        <a href="#" onclick="alert('Privacy Policy')">Privacy Policy</a>.
       </div>
     </div>
+
     <footer class="footer-container">
       <div class="footer-content">
         <div class="footer-main">
@@ -940,8 +871,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Floating Messenger Icon -->
     <a href="#" class="floating-messenger" title="Chat with us">
       <span class="messenger-circle">
         <svg
@@ -978,48 +907,23 @@
       </span>
     </a>
     <script>
-      // Add smooth scroll animation when timeline items come into view
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
+      // Add some interactive effects
+      document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-2px)";
         });
-      }, observerOptions);
 
-      // Initialize timeline items with fade-in animation
-      document.querySelectorAll(".timeline-item").forEach((item, index) => {
-        item.style.opacity = "0";
-        item.style.transform = "translateY(20px)";
-        item.style.transition = `opacity 0.6s ease ${
-          index * 0.1
-        }s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(item);
+        btn.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+        });
       });
 
-      // Add click handlers for header icons
-      document.querySelector(".rss-icon").addEventListener("click", () => {
-        alert("RSS feed feature - would connect to actual RSS endpoint");
-      });
-
-      document.querySelector(".share-icon").addEventListener("click", () => {
-        if (navigator.share) {
-          navigator.share({
-            title: "Socket Changelog",
-            text: "Check out what's new at Socket!",
-            url: window.location.href,
-          });
-        } else {
-          // Fallback for browsers that don't support Web Share API
-          navigator.clipboard.writeText(window.location.href).then(() => {
-            alert("URL copied to clipboard!");
-          });
+      // Form validation
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        if (email) {
+          alert(`Continuing with email: ${email}`);
         }
       });
     </script>
