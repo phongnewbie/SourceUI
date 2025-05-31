@@ -150,7 +150,7 @@
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 20%;
   background: white;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(60, 60, 60, 0.15);
@@ -168,8 +168,10 @@
 }
 
 .dropdown-col {
-  min-width: 200px;
-  margin-right: 2rem;
+  min-width: 180px;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
 }
 
 .dropdown-col:last-child {
