@@ -18,6 +18,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.logo img {
+  height: 32px;
+}
 
 .logo {
   display: flex;

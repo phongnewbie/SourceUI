@@ -351,7 +351,9 @@ body {
   text-decoration: none;
   font-weight: 400;
 }
-
+.logo img {
+  height: 32px;
+}
 /* Navbar */
 .navbar {
   position: fixed;
@@ -448,8 +450,12 @@ body {
   outline: none;
   box-shadow: none;
 }
-
+.demo_Button {
+  color: #553c9a !important;
+  background: white;
+}
 .search-box {
+  width: 300px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -969,8 +975,6 @@ header {
   font-size: 24px;
   font-weight: bold;
   color: #7b54c2;
-  margin-top: 5px;
-  margin-right: 10px;
 }
 
 .tagline {

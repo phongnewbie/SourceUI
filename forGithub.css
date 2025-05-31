@@ -157,7 +157,7 @@ body {
 }
 
 .search-box {
-  width: 350px;
+  width: 300px;
   border: none;
   outline: none;
   padding: 0 16px;
@@ -306,7 +306,7 @@ body {
   font-size: 0.97rem;
   font-weight: 500;
   padding: 0.2rem 0;
-  display: flex;
+
   border-radius: 4px;
   transition: background 0.2s, color 0.2s;
 }
@@ -318,7 +318,6 @@ body {
 
 /* Product Link Styles */
 .product-link {
-  display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   padding: 0.5rem;
@@ -663,8 +662,6 @@ header {
   font-size: 24px;
   font-weight: bold;
   color: #7b54c2;
-  margin-top: 5px;
-  margin-right: 10px;
 }
 
 .tagline {

@@ -535,6 +535,7 @@ body {
 }
 
 .search-box {
+  width: 300px;
   border: none;
   outline: none;
   padding: 0 16px;

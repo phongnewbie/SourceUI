@@ -358,7 +358,6 @@ body {
 
 .logo img {
   height: 32px;
-  width: auto;
 }
 
 /* Navigation Links */
@@ -496,7 +495,7 @@ body {
   content: "▼";
   font-size: 0.7rem;
   margin-left: 0.3rem;
-  color: #a5b4fc;
+
   transition: transform 0.2s;
 }
 
@@ -601,7 +600,7 @@ body {
 .product-desc {
   display: block;
   color: #6b7280;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
 .npm-badge {

@@ -145,6 +145,9 @@
 .nav-right .demo_Button:hover {
   color: white;
 }
+.logo img {
+  height: 32px;
+}
 /* Dropdown styles */
 .dropdown-menu {
   display: none;

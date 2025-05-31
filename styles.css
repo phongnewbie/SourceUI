@@ -112,7 +112,7 @@ body {
 }
 
 .search-box {
-  width: 350px;
+  width: 300px;
   border: none;
   outline: none;
   padding: 0 16px;
@@ -431,8 +431,7 @@ body {
 }
 
 .logo img {
-  height: 30px;
-  width: 90px;
+  height: 32px;
 }
 
 .nav-links {
@@ -2460,7 +2459,7 @@ body {
 .dropdown-col ul li a {
   color: #222;
   text-decoration: none;
-  display: flex;
+
   font-size: 15px;
   transition: color 0.2s;
   padding: 4px 0;
@@ -2640,7 +2639,6 @@ body {
 
 /* Dropdown Product Column */
 .product-link {
-  display: flex;
   align-items: flex-start;
   gap: 14px;
   padding: 10px 0;

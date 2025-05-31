@@ -298,7 +298,7 @@
   margin-right: 0.3em;
 }
 
-.news-content a {
+.banner-text a {
   color: #fff;
   text-decoration: none;
   font-weight: 400;
@@ -342,7 +342,6 @@ body {
 
 .logo img {
   height: 32px;
-  width: auto;
 }
 
 /* Navigation Links */
@@ -397,12 +396,17 @@ body {
 }
 
 .search-box {
-  flex: 1;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   border: none;
   outline: none;
-  padding: 0.5rem 1rem;
+  padding: 0 16px;
+  height: 44px;
   font-size: 1rem;
-  color: #333;
+  flex: 1;
+  border-radius: 0 8px 8px 0;
   background: transparent;
 }
 
