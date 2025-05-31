@@ -1922,7 +1922,7 @@ body {
 
 .footer-main {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -2388,6 +2388,13 @@ body {
 .feature-item:nth-child(2) .feature-icon {
   background: linear-gradient(135deg, #22c55e, #06b6d4);
 }
+.demo_Button {
+  color: #553c9a !important;
+  background: white;
+}
+.nav-right .demo_Button:hover {
+  color: white;
+}
 
 /* Ẩn menu phụ mặc định */
 .dropdown-menu {
@@ -2401,7 +2408,7 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   border-radius: 16px;
   padding: 32px 40px;
-  min-width: 650px;
+
   z-index: 2000;
   gap: 40px;
   transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
@@ -2678,7 +2685,7 @@ body {
   box-shadow: 0 8px 32px rgba(80, 60, 160, 0.18),
     0 1.5px 6px rgba(0, 0, 0, 0.04);
   padding: 32px 40px;
-  min-width: 700px;
+
   gap: 40px;
   background: #fff;
   border: none;

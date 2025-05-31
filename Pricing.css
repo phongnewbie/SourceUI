@@ -149,7 +149,7 @@
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(60, 60, 60, 0.15);
   padding: 1.5rem 2rem;
-  min-width: 340px;
+
   z-index: 1001;
   gap: 2rem;
   flex-wrap: wrap;
@@ -194,7 +194,13 @@
   font-size: 0.98rem;
   transition: color 0.2s;
 }
-
+.demo_Button {
+  color: #553c9a !important;
+  background: white;
+}
+.nav-right .demo_Button:hover {
+  color: white;
+}
 .dropdown-col ul li a:hover {
   color: #7c3aed;
 }
@@ -302,7 +308,7 @@
 
 .footer-main {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   margin-bottom: 40px;
 }

@@ -314,7 +314,13 @@ body {
   transition: background 0.2s;
   text-decoration: none;
 }
-
+.demo_Button {
+  color: #553c9a !important;
+  background: white;
+}
+.nav-right .demo_Button:hover {
+  color: white;
+}
 .product-link:hover {
   background: #f3f4f6;
 }
@@ -557,7 +563,7 @@ body {
 
 .footer-main {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   margin-bottom: 40px;
 }

@@ -584,7 +584,13 @@ body {
 .dropdown-parent {
   position: relative;
 }
-
+.demo_Button {
+  color: #553c9a !important;
+  background: white;
+}
+.nav-right .demo_Button:hover {
+  color: white;
+}
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -594,7 +600,6 @@ body {
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  min-width: 600px;
 }
 
 .dropdown-parent:hover .dropdown-menu {
@@ -642,7 +647,7 @@ body {
 
 .footer-main {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   margin-bottom: 40px;
 }
