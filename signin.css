@@ -1,12 +1,12 @@
 /* Navbar */
 .navbar {
   position: fixed;
-  top: 1.9rem;
+  top: 2.1rem;
   left: 0;
   width: 100%;
+  padding: 1rem 0;
   z-index: 1000;
   background: #4b3792;
-  padding: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
@@ -27,6 +27,10 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
+}
+
+.logo img {
+  height: 32px;
 }
 
 .nav-links {
@@ -52,6 +56,10 @@
   content: "▼";
   font-size: 0.7rem;
   margin-left: 0.3rem;
+}
+
+.nav-links .dropdown:hover::after {
+  color: #7c3aed;
 }
 
 .search-container {
@@ -145,34 +153,40 @@
 .nav-right .demo_Button:hover {
   color: white;
 }
-.logo img {
-  height: 32px;
-}
+
 /* Dropdown styles */
 .dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 20%;
-  background: white;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(60, 60, 60, 0.15);
-  padding: 1.5rem 2rem;
-
+  box-shadow: 0 8px 32px rgba(80, 64, 160, 0.12),
+    0 1.5px 4px rgba(80, 64, 160, 0.04);
+  padding: 1.5rem 1.2rem;
+  min-width: max-content;
   z-index: 1001;
-  gap: 2rem;
   flex-wrap: wrap;
-  flex-direction: row;
+  gap: 2rem;
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
 }
 
 .nav-item.dropdown-parent:hover .dropdown-menu,
 .nav-item.dropdown-parent:focus-within .dropdown-menu {
   display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .dropdown-col {
   min-width: 180px;
   max-width: 240px;
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
 }
@@ -182,10 +196,10 @@
 }
 
 .dropdown-col h4 {
-  color: #7c3aed;
+  color: #35285e;
+  margin-bottom: 1rem;
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.7rem;
 }
 
 .dropdown-col ul {
@@ -199,26 +213,29 @@
 }
 
 .dropdown-col ul li a {
-  color: #333;
+  color: #4b3792;
   text-decoration: none;
+  font-size: 0.97rem;
   font-weight: 500;
-  font-size: 0.98rem;
-  transition: color 0.2s;
+  padding: 0.2rem 0;
+  display: block;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
 }
 
 .dropdown-col ul li a:hover {
+  background: #f3f4f6;
   color: #7c3aed;
 }
 
 .product-link {
   display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  text-decoration: none;
-  color: #333;
-  padding: 0.4rem 0.2rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem;
   border-radius: 6px;
   transition: background 0.2s;
+  text-decoration: none;
 }
 
 .product-link:hover {
@@ -226,25 +243,29 @@
 }
 
 .product-icon {
-  width: 36px;
-  height: 36px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f3f4f6;
-  border-radius: 8px;
+}
+
+.product-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .product-title {
+  display: block;
   font-weight: 600;
   color: #4b3792;
-  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
 }
-
 .product-desc {
+  display: block;
+  font-size: 0.85rem;
   color: #666;
-  font-size: 0.92rem;
-  font-weight: 400;
 }
 
 /* Responsive styles for navbar */

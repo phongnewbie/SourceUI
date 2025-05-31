@@ -52,9 +52,9 @@ body {
   top: 2.1rem;
   left: 0;
   width: 100%;
+  padding: 1rem 0;
   z-index: 1000;
   background: #4b3792;
-  padding: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
@@ -101,13 +101,9 @@ body {
 }
 
 .nav-links .dropdown::after {
-  content: "\25BC";
+  content: "▼";
   font-size: 0.7rem;
   margin-left: 0.3rem;
-  display: inline-block;
-  vertical-align: middle;
-  color: #fff;
-  transition: color 0.2s;
 }
 
 .nav-links .dropdown:hover::after {

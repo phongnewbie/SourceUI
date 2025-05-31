@@ -32,13 +32,14 @@ body {
   top: 2.1rem;
   left: 0;
   width: 100%;
+  padding: 1rem 0;
   z-index: 1000;
   background: #4b3792;
-  padding: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .nav-container {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -2399,23 +2400,22 @@ body {
 /* Ẩn menu phụ mặc định */
 .dropdown-menu {
   display: none;
-  opacity: 0;
-  pointer-events: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 20%;
   background: #fff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  border-radius: 16px;
-  padding: 32px 40px;
-
-  z-index: 2000;
-  gap: 40px;
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateY(16px) scale(0.98);
-  box-shadow: 0 8px 32px rgba(80, 60, 160, 0.18),
-    0 1.5px 6px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(80, 64, 160, 0.12),
+    0 1.5px 4px rgba(80, 64, 160, 0.04);
+  padding: 1.5rem 1.2rem;
+  min-width: max-content;
+  z-index: 1001;
+  flex-wrap: wrap;
+  gap: 2rem;
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
 }
 
 .nav-item.dropdown-parent {
@@ -2427,12 +2427,15 @@ body {
   display: flex;
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 .dropdown-col {
   min-width: 180px;
-  margin-right: 32px;
+  max-width: 240px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .dropdown-col:last-child {
@@ -2440,10 +2443,10 @@ body {
 }
 
 .dropdown-col h4 {
-  color: #7c3aed;
-  font-size: 15px;
-  margin-bottom: 12px;
-  font-weight: 600;
+  color: #35285e;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .dropdown-col ul {
@@ -2453,23 +2456,23 @@ body {
 }
 
 .dropdown-col ul li {
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
 .dropdown-col ul li a {
-  color: #222;
+  color: #4b3792;
   text-decoration: none;
-
-  font-size: 15px;
-  transition: color 0.2s;
-  padding: 4px 0;
-
-  border-radius: 6px;
+  font-size: 0.97rem;
+  font-weight: 500;
+  padding: 0.2rem 0;
+  display: block;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
 }
 
 .dropdown-col ul li a:hover {
+  background: #f3f4f6;
   color: #7c3aed;
-  background: #f3f0ff;
 }
 
 @media (max-width: 900px) {
@@ -2639,38 +2642,40 @@ body {
 
 /* Dropdown Product Column */
 .product-link {
+  display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 10px 0;
-  border-radius: 8px;
-  transition: background 0.18s;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s;
   text-decoration: none;
 }
 .product-link:hover {
   background: #f3f0ff;
 }
 .product-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
-  border-radius: 50%;
-  background: #f3f4f6;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.product-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
 .product-title {
-  font-weight: 600;
-  color: #222;
-  font-size: 15px;
   display: block;
+  font-weight: 600;
+  color: #4b3792;
+  margin-bottom: 0.2rem;
 }
 .product-desc {
-  color: #888;
-  font-size: 8px;
   display: block;
-  margin-top: 2px;
+  font-size: 0.85rem;
+  color: #666;
 }
 .dropdown-col h4 {
   font-size: 13px;
@@ -2683,8 +2688,7 @@ body {
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(80, 60, 160, 0.18),
     0 1.5px 6px rgba(0, 0, 0, 0.04);
-  padding: 32px 40px;
-
+  padding: 1.5rem 1.2rem;
   gap: 40px;
   background: #fff;
   border: none;

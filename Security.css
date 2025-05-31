@@ -52,13 +52,14 @@ body {
   top: 2.1rem;
   left: 0;
   width: 100%;
+  padding: 1rem 0;
   z-index: 1000;
   background: #4b3792;
-  padding: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .nav-container {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -105,13 +106,9 @@ body {
 }
 
 .nav-links .dropdown::after {
-  content: "\25BC";
+  content: "▼";
   font-size: 0.7rem;
   margin-left: 0.3rem;
-  display: inline-block;
-  vertical-align: middle;
-  color: #fff;
-  transition: color 0.2s;
 }
 
 .nav-links .dropdown:hover::after {
@@ -250,7 +247,7 @@ body {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 20%;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(80, 64, 160, 0.12),
@@ -305,7 +302,7 @@ body {
   font-size: 0.97rem;
   font-weight: 500;
   padding: 0.2rem 0;
-  display: flex;
+  display: block;
   border-radius: 4px;
   transition: background 0.2s, color 0.2s;
 }
