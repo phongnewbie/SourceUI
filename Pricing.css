@@ -333,7 +333,7 @@
 
 .footer-main {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -959,13 +959,15 @@ body {
 }
 
 .plan-box.premium .tier-header {
-  background: #553c9a;
+  background: #6b46c1;
   color: white;
   margin: -32px -24px 32px -24px;
   padding: 32px 24px;
 }
 
 .tier-title {
+  color: white !important;
+  font-weight: bolder;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -1029,20 +1031,16 @@ body {
 }
 
 .premium .btn-outline {
-  background: rgba(255, 255, 255, 0.2);
+  background: #7c3aed;
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.premium .btn-outline:hover {
-  background: white;
-  color: #7c3aed;
 }
 
 .premium .tier-header .tier-title,
 .premium .tier-header .tier-badge,
 .premium .tier-header .tier-info {
   color: white;
+  font-weight: bolder;
 }
 
 .benefits-area h3 {
