@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="APIReference.css" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
+      background: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: #6f42c1;
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo img {
+      width: 150px;
+      height: 50px;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .nav-tabs a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .nav-tabs a:hover {
+      opacity: 1;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      padding: 6px 30px 6px 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      width: 200px;
+    }
+
+    .search-box::after {
+      content: "⌘K";
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: #666;
+    }
+
+    .login-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar {
+      width: 280px;
+      background: white;
+      border-right: 1px solid #e9ecef;
+      padding: 20px 0;
+    }
+
+    .sidebar-section {
+      margin-bottom: 25px;
+    }
+
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding: 0 20px;
+    }
+
+    .sidebar-item {
+      padding: 8px 20px;
+      font-size: 14px;
+      color: #495057;
+      text-decoration: none;
+      display: block;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-item:hover {
+      background: #f8f9fa;
+      color: #6f42c1;
+    }
+
+    .sidebar-item.active {
+      background: #f8f9fa;
+      color: #6f42c1;
+      border-left-color: #6f42c1;
+      font-weight: 500;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 30px 40px;
+      background: white;
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    .suggest-edit {
+      font-size: 14px;
+      color: #6f42c1;
+      text-decoration: none;
+    }
+
+    .content-section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      font-size: 16px;
+      color: #495057;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      color: #6f42c1;
+      text-decoration: none;
+    }
+
+    .highlight:hover {
+      text-decoration: underline;
+    }
+
+    .whats-next {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    .whats-next h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #212529;
+    }
+
+    .whats-next p {
+      color: #495057;
+      margin-bottom: 15px;
+    }
+
+    .link-list {
+      list-style: none;
+    }
+
+    .link-list li {
+      margin-bottom: 8px;
+    }
+
+    .link-list a {
+      color: #6f42c1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .link-list a:hover {
+      text-decoration: underline;
+    }
+
+    .updated-info {
+      font-size: 12px;
+      color: #6c757d;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e9ecef;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: white;
+      border-right: 1px solid #e5e7eb;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .jump-to {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .jump-to:hover {
+      background: #e5e7eb;
+    }
+
+    .nav-section {
+      padding: 20px 0;
+    }
+
+    .nav-title {
+      padding: 0 20px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #6b7280;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 20px;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-item:hover {
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    .nav-item.active {
+      background: #ede9fe;
+      color: #7c3aed;
+      border-right: 2px solid #7c3aed;
+    }
+
+    .nav-item .chevron {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+
+      padding: 40px;
+      max-width: calc(100% - 280px);
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .page-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .ask-ai-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-left: auto;
+    }
+
+    .ask-ai-btn:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+    }
+
+    .content-section {
+      margin-bottom: 40px;
+    }
+
+    .content-section p {
+      margin-bottom: 20px;
+      color: #4b5563;
+      font-size: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #111827;
+      margin: 40px 0 20px;
+    }
+
+    .feature-list {
+      margin: 20px 0;
+    }
+
+    .feature-list ol {
+      padding-left: 20px;
+    }
+
+    .feature-list li {
+      margin-bottom: 12px;
+      color: #4b5563;
+    }
+
+    .feature-list li strong {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .benefits-list {
+      margin: 20px 0;
+    }
+
+    .benefits-list ul {
+      padding-left: 20px;
+    }
+
+    .benefits-list li {
+      margin-bottom: 8px;
+      color: #4b5563;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .code-snippet {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: "Monaco", "Menlo", monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+    }
+
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .info-box h4 {
+      color: #1e40af;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .info-box p {
+      color: #1e3a8a;
+      margin: 0;
+    }
+
+    /* Mobile Responsive */
+    .mobile-menu-btn {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 200;
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 80px 20px 40px;
+      }
+
+      .page-title {
+        font-size: 1.875rem;
+      }
+
+      .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .content-section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .nav-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(123, 58, 237, 0.1),
+        transparent
+      );
+      transition: left 0.5s ease;
+    }
+
+    .nav-item:hover::before {
+      left: 100%;
+    }
+
+    .containers_content-section p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .containers_content-section ol {
+      padding-left: 20px;
+    }
+
+    .containers_content-section li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .containers_content-section .code {
+      background-color: #f8f9fa;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      color: #e74c3c;
+    }
+
+    .containers_content-section .screenshot {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .containers_content-section .screenshot img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .containers_content-section .scopes-section {
+      margin-top: 20px;
+    }
+
+    .containers_content-section ul {
+      padding-left: 20px;
+    }
+
+    .containers_content-section ul li {
+      margin-bottom: 5px;
+    }
+
+    .containers_content-section .scope-item {
+      font-weight: bold;
+    }
+
+    .containers_content-section .permission-list {
+      margin-left: 20px;
+    }
+
+    .containers_content-section .permission-list li {
+      font-weight: normal;
+      color: #555;
+    }
+
+    .containers_content-section .sub-permission {
+      margin-left: 20px;
+
+      font-size: 14px;
+      color: #8e44ad;
+    }
+    .permission-list {
+      margin-left: 30px;
+    }
+    .sub-permission {
+      margin-left: 50px;
+    }
+
+    .ask-ai-btn {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: #495057;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ask-ai-btn:hover {
+      background-color: #e9ecef;
+    }
+
+    .subtitle {
+      color: #6c757d;
+      font-size: 16px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #e9ecef;
+      padding-bottom: 20px;
+    }
+
+    .code-block {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 6px;
+      padding: 16px;
+      margin: 16px 0;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+        monospace;
+      font-size: 14px;
+      line-height: 1.45;
+      overflow-x: auto;
+    }
+
+    .inline-code {
+      background-color: #f8f9fa;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+        monospace;
+      font-size: 13px;
+      color: #e83e8c;
+    }
+
+    .curl-example {
+      background-color: #f1f3f4;
+      border-left: 4px solid #1976d2;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .curl-label {
+      background-color: #e9ecef;
+      color: #495057;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .footer-info {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #6c757d;
+    }
+
+    .navigation {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #6c757d;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-link:hover {
+      color: #495057;
+    }
+
+    .feedback-section {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .feedback-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .feedback-btn {
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feedback-btn:hover {
+      background-color: #f8f9fa;
+    }
+
+    .highlight-yellow {
+      background-color: #fff3cd;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">
+
+        <img
+          src="https://files.readme.io/dd278d5-small-logo-280x80.png"
+          alt=""
+        />
+        </a>
+      </div>
+      <div class="header-right">
+        <div class="nav-tabs">
+          <a href="docs.html">🔗 Documentation</a>
+          <a href="#">🎯 API Reference</a>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+        </div>
+        <a href="#" class="login-btn">Log in</a>
+      </div>
+    </header>
+
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="jump-to">
+            <span>JUMP TO</span>
+            <kbd>CTRL+J</kbd>
+          </div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title">API ENDPOINTS</div>
+          <a href="#" class="nav-item active">Introduction to Socket API</a>
+          <a href="#" class="nav-item">Creating and Managing API Tokens</a>
+          <a href="#" class="nav-item">Authentication</a>
+          <a href="#" class="nav-item">Quota</a>
+          <a href="#" class="nav-item">Rate Limits</a>
+          <a href="#" class="nav-item">Socket Package URLs (purl)</a>
+          <a href="#" class="nav-item">Historical Data Endpoints</a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title">API ENDPOINTS</div>
+          <a href="#" class="nav-item">
+            Packages
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Deprecated
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            License
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Audit Log
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Export
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Full Scans
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Repositories
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Labels
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Triage
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            API Tokens
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Settings
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Historical
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Threat Feed
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Dependencies
+            <span class="chevron">›</span>
+          </a>
+          <a href="#" class="nav-item">
+            Misc
+            <span class="chevron">›</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="content-header">
+          <button class="ask-ai-btn">
+            <span>✨</span>
+            Ask AI
+            <span>▼</span>
+          </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-content active">
+        <div class="content-section">
+            <h2 class="section-title">Introduction to Socket API</h2>
+            <div class="containers_content-section">
+              <p>
+                The Socket API is a powerful tool designed to bolster
+                application security for developers and security teams. By
+                offering functionalities like identifying vulnerabilities
+                providing security scores for packages, streamlining report
+                management, and giving insights on repository health and
+                dependencies, it simplifies the complex task of ensuring
+                application safety.
+          </p>
+
+          <p>
+            Built with a developer-first approach and backed by industry
+                experts, the Socket API is an essential solution for those
+                aiming to safeguard their applications while reducing security
+                busywork.
+          </p>
+
+          <h2 class="section-title">What it does:</h2>
+          <p>
+            Socket API offers a wide range of functionalities to enhance
+            application security:
+          </p>
+
+          <div class="feature-list">
+            <ol>
+              <li>
+                    <strong>Issue Management:</strong> Retrieve issues by
+                    package.
+              </li>
+              <li>
+                    <strong>Scoring System:</strong> Obtain a security score for
+                    any package.
+              </li>
+              <li>
+                    <strong>Report Handling:</strong> Create, view, delete, or
+                    list reports easily.
+              </li>
+              <li>
+                    <strong>File Support:</strong> Check which files are
+                    supported for reports.
+              </li>
+              <li>
+                <strong>API Definition:</strong> Quickly get the OpenAPI
+                definition.
+              </li>
+              <li><strong>Usage Analysis:</strong> Monitor your quota.</li>
+              <li>
+                <strong>Organization Management:</strong> List and manage
+                different organizations.
+              </li>
+              <li>
+                <strong>Settings Calculation:</strong> Adjust and view your
+                settings.
+              </li>
+              <li>
+                    <strong>Repository Insights:</strong> Get a list of
+                    repositories and their latest project reports.
+              </li>
+              <li>
+                    <strong>Dependency Snapshots:</strong> Create a snapshot of
+                    all dependencies from manifest information.
+              </li>
+            </ol>
+        </div>
+
+          <h2 class="section-title">Why it's useful:</h2>
+          <p>
+                Socket API is a powerful tool for developers and security teams.
+                It aids in:
+          </p>
+
+          <div class="benefits-list">
+            <ul>
+              <li>
+                Quickly identifying and managing vulnerabilities in your
+                application.
+              </li>
+              <li>
+                Making informed decisions with the package security scoring
+                system.
+              </li>
+                  <li>
+                    Streamlining report management, saving time and effort.
+                  </li>
+              <li>Ensuring compatibility with supported files.</li>
+                  <li>
+                    Getting insights on repository health and dependencies.
+                  </li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+          <h4>Getting Started</h4>
+          <p>
+                  Ready to enhance your application security? Start by creating
+                  your API token and exploring the comprehensive endpoints
+                  available in the Socket API.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Creating and Managing API Tokens</h2>
+            <div class="containers_content-section">
+              <h1>Introduction</h1>
+              <p>
+                Socket provides a powerful API that allows you to interact with
+                your organization's data programmatically. To authenticate API
+                requests, you need to use API tokens. This guide will show you
+                how to generate and manage these tokens within your
+                organization.
+              </p>
+
+              <h2>Generating a New API Token</h2>
+              <p>To generate a new API token:</p>
+
+              <ol>
+                <li>
+                  <strong>Navigate to Settings:</strong> On the Socket
+                  dashboard, go to <span class="code">Settings</span> in the
+                  left-hand menu.
+                </li>
+                <li>
+                  <strong>Access API Tokens:</strong> Click on the
+                  <span class="code">API Tokens</span> tab within the Settings
+                  menu.
+                </li>
+                <li>
+                  <strong>Create API Token:</strong> Click the
+                  <span class="code">+ Create API Token</span> button in the
+                  upper-right corner.
+                </li>
+                <li>
+                  A dialog will appear where you can set the name and choose the
+                  scopes for the token.
+                </li>
+                <li>
+                  After selecting the appropriate scopes, click
+                  <span class="code">Confirm</span> to generate the token.
+                </li>
+              </ol>
+
+              <div class="screenshot">
+                <img
+                  src="https://files.readme.io/4350e63-Screenshot_2024-08-13_at_5.59.25_PM.png"
+                  alt=""
+                />
+              </div>
+
+              <h2>Editing and Managing API Tokens</h2>
+              <p>To edit or manage existing API tokens:</p>
+
+              <ol>
+                <li>
+                  <strong>Navigate to Settings:</strong> Go to the Settings page
+                  in your Socket dashboard.
+                </li>
+                <li>
+                  <strong>Access API Tokens:</strong> Click on the API Tokens
+                  tab.
+                </li>
+                <li>
+                  <strong>View Tokens:</strong> You'll see a list of all your
+                  existing tokens.
+                </li>
+                <li>
+                  <strong>Edit or Delete:</strong> Use the options menu next to
+                  each token to edit its scopes or delete it.
+                </li>
+              </ol>
+
+              <div class="scopes-section">
+                <p>
+                  The following scopes can be selected when creating or editing
+                  an API token:
+                </p>
+
+                <ul>
+                  <li class="scope-item">report</li>
+                  <ul class="permission-list">
+                    <li>
+                      Full control of reports: This allows for the creation,
+                      listing, and reading of reports.
+                    </li>
+                    <li>Permissions:</li>
+                    <ul class="sub-permission">
+                      <li>report:list : List reports</li>
+                      <li>report:read : Read reports</li>
+                      <li>report:write : Create reports</li>
+                    </ul>
+                  </ul>
+                </ul>
+
+                <ul>
+                  <li class="scope-item">repo</li>
+                  <ul class="permission-list">
+                    <li>
+                      Full access to organization repositories: This scope
+                      provides complete control over the repositories within the
+                      organization.
+                    </li>
+                    <li>Permissions:</li>
+                    <ul class="sub-permission">
+                      <li>full-scans:list: List full scans</li>
+                      <li>full-scans:create: Create full scans</li>
+                      <li>full-scans:delete: Delete full scans</li>
+                    </ul>
+                  </ul>
+                </ul>
+
+                <ul>
+                  <li class="scope-item">Package</li>
+                  <ul class="permission-list">
+                    <li>
+                      Full access to package metadata: This scope allows for the
+                      listing and management of package metadata.
+                    </li>
+                    <li>Permissions:</li>
+                    <ul class="sub-permission">
+                      <li>packages:list: List package metadata</li>
+                    </ul>
+                  </ul>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul class="permission-list">
+                  <li>
+                    Least Privilege Principle: Assign only the necessary scopes
+                    to each token to minimize potential security risks.
+                  </li>
+                  <li>
+                    Regular Rotation: Regularly rotate your tokens to reduce the
+                    impact of a compromised token.
+                  </li>
+                  <li>
+                    Audit and Review: Periodically review the tokens and their
+                    scopes to ensure they align with current organizational
+                    needs and security practices.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Authentication</h2>
+            <div class="containers_content-section">
+              <h1>Authentication</h1>
+              <p class="subtitle">
+                This page will explain how Socket API authentication works
+              </p>
+
+              <p>
+                Socket's API uses organization tokens for authenticating
+                requests.
+              </p>
+
+              <p>
+                Organization tokens can be created in your Socket organization
+                settings and are scoped to the organization that you create them
+                in.
+              </p>
+
+              <p>
+                Authenticating requests to the Socket API can be done by passing
+                the API token as a Bearer token in the
+                <span class="inline-code">Authorization</span> header, or as the
+                username field of an HTTP Basic authentication header.
+              </p>
+
+              <p>
+                To authenticate using a Bearer token, pass the API token in the
+                Authorization header after the word "Bearer":
+              </p>
+
+              <div class="code-block">
+                curl --request GET \<br />
+                --url 'https://api.socket.dev/v0/orgs/org_slug/full-scans' \<br />
+                --header 'accept: application/json' \<br />
+                --header 'authorization: Bearer your_api_key'
+              </div>
+
+              <p>
+                To authenticate a request, provide your API token through HTTP
+                Basic authentication in the request. The API token is used as
+                the <span class="inline-code">username</span> and the
+                <span class="inline-code">password</span> is left blank (ie.
+                <span class="highlight-yellow">your_api_key:</span> encoded in
+                Base64).
+              </p>
+
+              <p>An example is shown below:</p>
+
+              <div class="curl-example">
+                <div class="curl-label">cURL</div>
+                <div class="code-block">
+                  curl https://api.socket.dev/v0/quota -X GET -u
+                  <span class="highlight-yellow">"your_api_key:"</span>
+                </div>
+              </div>
+
+              <div class="footer-info">🕒 Updated 3 months ago</div>
+
+              <div class="navigation">
+                <a href="#" class="nav-link"
+                  >← Creating and Managing API Tokens</a
+                >
+                <a href="#" class="nav-link">Quota →</a>
+              </div>
+
+              <div class="feedback-section">
+                <p>Did this page help you?</p>
+                <div class="feedback-buttons">
+                  <button class="feedback-btn">👍 Yes</button>
+                  <button class="feedback-btn">👎 No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Quota</h2>
+            <div class="containers_content-section">
+              <p class="subtitle">
+                This page explains how Socket API quota works
+              </p>
+
+              <p>
+                Each <span class="highlight-blue">API endpoint</span> has a
+                <span class="highlight-blue">quota</span> and each
+                <span class="highlight-blue">API token</span> has a
+                <span class="highlight-blue">maximum quota</span> that can use
+                <span class="highlight-blue">per hour</span>. This is used to
+                prevent an abuse of expensive API calls.
+              </p>
+
+              <p>
+                If the <span class="highlight-blue">maximum quota</span> of an
+                API token has been exceeded, the API will return a
+                <span class="inline-code">429</span> error and the
+                <span class="inline-code">Retry-After</span> header will contain
+                the number of seconds until you can call that same endpoint
+                successfully (ie. have enough quota for that endpoint).
+              </p>
+
+              <div class="footer-info">🕒 Updated 5 months ago</div>
+
+              <div class="navigation">
+                <a href="#" class="nav-link">← Authentication</a>
+                <a href="#" class="nav-link">Rate Limits →</a>
+              </div>
+
+              <div class="feedback-section">
+                <p>Did this page help you?</p>
+                <div class="feedback-buttons">
+                  <button class="feedback-btn">👍 Yes</button>
+                  <button class="feedback-btn">👎 No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Rate Limits</h2>
+            <div class="containers_content-section">
+              <p class="subtitle">
+                This page explains how Socket API rate limiting works
+              </p>
+
+              <p>
+                To promote stability of Socket's systems, the API endpoints are
+                <span class="highlight-blue">rate limited</span>. Sending too
+                many requests to an endpoint will result in a
+                <span class="inline-code">429</span> error being returned.
+              </p>
+
+              <p>
+                Socket's API limits the amount of requests to
+                <span class="highlight-red">one per minute</span>.
+              </p>
+
+              <h2>How to handle rate limits</h2>
+
+              <p>
+                When you call the Socket API repeatedly, you may encounter error
+                messages that say
+                <span class="inline-code">429: 'Too Many Requests'</span> or
+                <span class="inline-code">Rate Limits</span>. These error
+                messages come from exceeding the API's rate limits.
+              </p>
+
+              <p>
+                Rate limits are a common practice for APIs, and they're put in
+                place for a few different reasons:
+              </p>
+
+              <ul>
+                <li>
+                  <span class="list-item-strong">First</span>, they help protect
+                  against abuse or misuse of the API. For example, a malicious
+                  actor could flood the API with requests in an attempt to
+                  overload it or cause disruptions in service. By setting rate
+                  limits, Socket can prevent this kind of activity.
+                </li>
+
+                <li>
+                  <span class="list-item-strong">Second</span>, rate limits help
+                  ensure that everyone has fair access to the API. If one person
+                  or organization makes an excessive number of requests, it
+                  could bog down the API for everyone else. By throttling the
+                  number of requests that a single user can make, Socket ensures
+                  that everyone has an opportunity to use the API without
+                  experiencing slowdowns.
+                </li>
+
+                <li>
+                  <span class="list-item-strong">Lastly</span>, rate limits can
+                  help Socket manage the aggregate load on its infrastructure.
+                  If requests to the API increase dramatically, it could tax the
+                  servers and cause performance issues. By setting rate limits,
+                  Socket can help maintain a smooth and consistent experience
+                  for all users.
+                </li>
+              </ul>
+
+              <p>
+                Although hitting rate limits can be frustrating, rate limits
+                exist to protect the reliable operation of the API for its
+                users.
+              </p>
+
+              <p>
+                In this guide, we'll share some tips for avoiding and handling
+                rate limit errors.
+              </p>
+
+              <h2>Requesting a rate limit increase</h2>
+
+              <p>
+                If you'd like your organization's rate limit increased, please
+                feel free to reach out to
+                <a href="#" class="support-link">support</a> if you need help
+                with either of these workarounds, with the following
+                information:
+              </p>
+
+              <ul>
+                <li>The estimated rate of requests</li>
+                <li>The reason for the increase</li>
+              </ul>
+
+              <h2>How to avoid rate limit errors</h2>
+
+              <h3>Retrying with exponential backoff</h3>
+
+              <p>
+                One easy way to avoid
+                <span class="highlight-blue">rate limit</span> errors is to
+                automatically retry requests with a
+                <span class="highlight-blue">random exponential backoff</span>.
+                Retrying with exponential backoff means performing a short sleep
+                when a <span class="highlight-blue">rate limit</span> error is
+                hit, then retrying the unsuccessful request. If the request is
+                still unsuccessful, the sleep length is increased and the
+                process is repeated. This continues until the request is
+                successful or until a maximum number of retries is reached.
+              </p>
+
+              <p>This approach has many benefits:</p>
+
+              <ul>
+                <li>
+                  <span class="list-item-strong">Automatic retry</span> means
+                  you can recover from
+                  <span class="highlight-blue">rate limit</span> errors without
+                  crashes or missing data
+                </li>
+                <li>
+                  <span class="list-item-strong">Exponential backoff</span>
+                  means that your first retries can be tried quickly, while
+                  still benefiting from longer delays if your first few retries
+                  fail
+                </li>
+                <li>
+                  <span class="list-item-strong">Adding random jitter</span> to
+                  the delay helps retries from all hitting at the same time
+                </li>
+              </ul>
+
+              <div class="footer-info">🕒 Updated 5 months ago</div>
+
+              <div class="navigation">
+                <a href="#" class="nav-link">← Quota</a>
+                <a href="#" class="nav-link">Endpoints →</a>
+              </div>
+
+              <div class="feedback-section">
+                <p>Did this page help you?</p>
+                <div class="feedback-buttons">
+                  <button class="feedback-btn">👍 Yes</button>
+                  <button class="feedback-btn">👎 No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Socket Package URLs (purl)</h2>
+            <div class="containers_content-section">
+              <p class="subtitle">This page describes how Socket purls work</p>
+
+              <h2>What is a Socket purl?</h2>
+
+              <p>
+                A Socket purl is based on the standard as documented
+                <a href="#" class="link">here</a>. There is a good description
+                from that page:
+              </p>
+
+              <p>
+                A <span class="highlight-blue">package</span> (commonly
+                pronounced <span class="inline-code">purl</span>) is an attempt
+                to standardize package
+                <span class="highlight-blue">purl</span> is syntax and
+                representations in order to reliably identify and locate
+                software packages. A purl is a URL-string which represents a
+                package in a mostly universal fashion across teams, tools,
+                programming languages, package managers, packaging conventions,
+                tools, APIs and databases.
+              </p>
+
+              <p>
+                A Socket purl is used with the
+                <span class="highlight-blue">packages</span> API and this
+                specific definition for the format can be found at the
+                <a href="#" class="link">GitHub Spec</a>.
+              </p>
+
+              <h2>Constructing a Socket purl</h2>
+
+              <p>
+                The format for a <span class="highlight-blue">purl</span> is
+                like the following:
+              </p>
+
+              <div class="code-block">scheme:type/namespace/name@version</div>
+
+              <p>
+                In the case of the Socket Packages endpoint the scheme is always
+                going to be <span class="inline-code">pkg</span>. Here are some
+                examples for different ecosystems:
+              </p>
+
+              <div class="example-section">
+                <div class="example-title">npm</div>
+                <div class="code-block">pkg:npm/browserlist@8.8</div>
+              </div>
+
+              <div class="example-section">
+                <div class="example-title">Python</div>
+                <div class="code-block">pkg:pypi/light-ai-client@8.28</div>
+              </div>
+
+              <div class="example-section">
+                <div class="example-title">Maven</div>
+                <div class="code-block">pkg:maven/log4j/log4j@1.17</div>
+              </div>
+
+              <div class="footer-info">🕒 Updated 7 months ago</div>
+
+              <div class="navigation">
+                <a href="#" class="nav-link">← Rate Limits</a>
+                <a href="#" class="nav-link">Historical Data Endpoints →</a>
+              </div>
+
+              <div class="feedback-section">
+                <p>Did this page help you?</p>
+                <div class="feedback-buttons">
+                  <button class="feedback-btn">👍 Yes</button>
+                  <button class="feedback-btn">👎 No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Historical Data Endpoints</h2>
+            <div class="containers_content-section">
+             <p class="subtitle">Historical data endpoints provide access to historical data that is collected via periodic snapshots and other events</p>
+        
+        <p>The Socket platform periodically collects historical data and stores this data as <span class="highlight-blue">historical snapshots</span>. Historical snapshots are automatically collected at least once a day but customers can request on-demand snapshots within the limits of their pricing plan.</p>
+        
+        <p>Historical data is automatically "bucketed" to the nearest day by truncating the scan date to the nearest day based on the UTC time zone. For example, if a scan occurs at January 1, 2025 3:15pm UTC then the historical data collected for that <span class="highlight-blue">scan</span> will be associated with the day starting at January 1, 2025 12am UTC. This approach to data bucketing will ensure data can be summarized by day for further analysis and reduce API response sizes. Since the <span class="highlight-blue">scan</span> was collected after the daily truncation point, for the API response that is associated with data for the daily bucket the data returned data is filtered to include only the data based on the last scan of each day for a given source and repository. In other words, within a single day for a given source (the the source), it returns the last scan for a given source and source repository. For the endpoint that is configured to look for trending data. Also, when fetching historical data for the last scan on January 1, 2025 will be returned.</p>
+        
+        <p>The Socket API provides the following endpoints for accessing and <span class="highlight-blue">managing historical data</span>:</p>
+        
+        <div class="api-list">
+            <ul>
+                <li><a href="#" class="link">List historical alerts</a></li>
+                <li><a href="#" class="link">Fetch trend data for historical alerts</a></li>
+                <li><a href="#" class="link">List details of periodic historical data snapshots</a></li>
+                <li><a href="#" class="link">Start historical data snapshot job</a></li>
+            </ul>
+        </div>
+        
+        <p>The Socket platform strives to provide consistent ingestion of historical data but there may be delays or gaps when collecting historical data. Customers should use the API endpoint for <a href="#" class="link">listing recent historical snapshots</a> to review the history of snapshots.</p>
+        
+        <div class="footer-info">
+            🕒 Updated about 1 month ago
+        </div>
+        
+        <div class="navigation">
+            <a href="#" class="nav-link">← Socket Package URLs (purl)</a>
+            <a href="#" class="nav-link">Packages →</a>
+        </div>
+        
+        <div class="feedback-section">
+            <p>Did this page help you?</p>
+            <div class="feedback-buttons">
+                <button class="feedback-btn">👍 Yes</button>
+                <button class="feedback-btn">👎 No</button>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Packages</h2>
+            <p>Information about package management and related endpoints.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Deprecated</h2>
+            <p>List of deprecated features and endpoints.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">License</h2>
+            <p>License information and related endpoints.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Audit Log</h2>
+            <p>Access and manage audit logs through the API.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Export</h2>
+            <p>Export data and reports using the API.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Full Scans</h2>
+            <p>Information about full scan capabilities and endpoints.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Repositories</h2>
+            <p>Manage repositories and their settings through the API.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Labels</h2>
+            <p>Work with labels and tagging functionality.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Triage</h2>
+            <p>Triage and manage security issues through the API.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">API Tokens</h2>
+            <p>Manage API tokens and access controls.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Settings</h2>
+            <p>Configure and manage API settings.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Historical</h2>
+            <p>Access historical data and reports.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Threat Feed</h2>
+            <p>Access and manage threat feed data.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Dependencies</h2>
+            <p>Manage and analyze dependencies through the API.</p>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <h2 class="section-title">Misc</h2>
+            <p>Miscellaneous endpoints and utilities.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navItems = document.querySelectorAll(".nav-item");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      // Hide all tab contents except the first one
+      tabContents.forEach((content, index) => {
+        if (index !== 0) {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+
+      // Add click event listeners to nav items
+      navItems.forEach((item) => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Remove active class from all nav items
+          navItems.forEach((nav) => nav.classList.remove("active"));
+
+          // Add active class to clicked nav item
+          this.classList.add("active");
+
+          // Hide all tab contents
+          tabContents.forEach((content) => {
+            content.style.display = "none";
+          });
+
+          // Show the corresponding tab content
+          const targetIndex = Array.from(navItems).indexOf(this);
+          if (tabContents[targetIndex]) {
+            tabContents[targetIndex].style.display = "block";
+            // Add animation
+            tabContents[targetIndex].style.animation = "fadeInUp 0.6s ease-out";
+          }
+        });
+      });
+    });
+
+    // Mobile menu toggle
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("open");
+    }
+  </script>
+</html>

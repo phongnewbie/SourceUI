@@ -35,15 +35,6 @@
         font-weight: 600;
       }
 
-      .logo::before {
-        content: "🔌";
-        background: white;
-        color: #6f42c1;
-        border-radius: 50%;
-        padding: 4px;
-        font-size: 14px;
-      }
-
       .header-right {
         display: flex;
         align-items: center;
@@ -286,7 +277,14 @@
   </head>
   <body>
     <header class="header">
-      <div class="logo">Socket</div>
+      <div class="logo">
+        <a href="index.html">
+          <img
+            src="https://socket.dev/_next/image?url=%2Fimages%2Flogo-280x80.png&w=96&q=75"
+            alt=""
+          />
+        </a>
+      </div>
       <div class="header-right">
         <div class="nav-tabs">
           <a href="#">🔗 Documentation</a>

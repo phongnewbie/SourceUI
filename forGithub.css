@@ -366,7 +366,7 @@ body {
 
 .footer-main {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -469,8 +469,15 @@ body {
 }
 
 .social-icon {
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.3s ease;
 }
 
 .social-icon:hover {
@@ -483,8 +490,15 @@ body {
 }
 
 .chakra-link {
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.3s ease;
 }
 
 .chakra-link:hover {

@@ -1,429 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Socket Documentation</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8f9fa;
-            line-height: 1.6;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: #f8f9fa;
+        line-height: 1.6;
+      }
 
-        .header {
-            background: #6f42c1;
-            color: white;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+      .header {
+        background: #6f42c1;
+        color: white;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 18px;
-            font-weight: 600;
-        }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .logo img {
+        width: 150px;
+        height: 50px;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 20px;
+        font-size: 14px;
+      }
 
-        .logo::before {
-            content: "🔌";
-            background: white;
-            color: #6f42c1;
-            border-radius: 50%;
-            padding: 4px;
-            font-size: 14px;
-        }
+      .nav-tabs a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+      }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+      .nav-tabs a:hover {
+        opacity: 1;
+      }
 
-        .nav-tabs {
-            display: flex;
-            gap: 20px;
-            font-size: 14px;
-        }
+      .search-box {
+        position: relative;
+      }
 
-        .nav-tabs a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-        }
+      .search-box input {
+        padding: 6px 30px 6px 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        width: 200px;
+      }
 
-        .nav-tabs a:hover {
-            opacity: 1;
-        }
+      .search-box::after {
+        content: "⌘K";
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: #666;
+      }
 
-        .search-box {
-            position: relative;
-        }
+      .login-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+      }
 
-        .search-box input {
-            padding: 6px 30px 6px 12px;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            width: 200px;
-        }
+      .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: calc(100vh - 60px);
+      }
 
-        .search-box::after {
-            content: "⌘K";
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 12px;
-            color: #666;
-        }
+      .sidebar {
+        width: 280px;
+        background: white;
+        border-right: 1px solid #e9ecef;
+        padding: 20px 0;
+      }
 
-        .login-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-        }
+      .sidebar-section {
+        margin-bottom: 25px;
+      }
 
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: calc(100vh - 60px);
-        }
+      .sidebar-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        padding: 0 20px;
+      }
 
-        .sidebar {
-            width: 280px;
-            background: white;
-            border-right: 1px solid #e9ecef;
-            padding: 20px 0;
-        }
+      .sidebar-item {
+        padding: 8px 20px;
+        font-size: 14px;
+        color: #495057;
+        text-decoration: none;
+        display: block;
+        border-left: 3px solid transparent;
+      }
 
-        .sidebar-section {
-            margin-bottom: 25px;
-        }
+      .sidebar-item:hover {
+        background: #f8f9fa;
+        color: #6f42c1;
+      }
 
-        .sidebar-title {
-            font-size: 12px;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            padding: 0 20px;
-        }
+      .sidebar-item.active {
+        background: #f8f9fa;
+        color: #6f42c1;
+        border-left-color: #6f42c1;
+        font-weight: 500;
+      }
 
-        .sidebar-item {
-            padding: 8px 20px;
-            font-size: 14px;
-            color: #495057;
-            text-decoration: none;
-            display: block;
-            border-left: 3px solid transparent;
-        }
+      .main-content {
+        flex: 1;
+        padding: 30px 40px;
+        background: white;
+      }
 
-        .sidebar-item:hover {
-            background: #f8f9fa;
-            color: #6f42c1;
-        }
+      .content-header {
+        display: flex;
+        justify-content: between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
 
-        .sidebar-item.active {
-            background: #f8f9fa;
-            color: #6f42c1;
-            border-left-color: #6f42c1;
-            font-weight: 500;
-        }
+      .page-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: #212529;
+      }
 
-        .main-content {
-            flex: 1;
-            padding: 30px 40px;
-            background: white;
-        }
+      .suggest-edit {
+        font-size: 14px;
+        color: #6f42c1;
+        text-decoration: none;
+      }
 
-        .content-header {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+      .content-section {
+        margin-bottom: 40px;
+      }
 
-        .page-title {
-            font-size: 28px;
-            font-weight: 600;
-            color: #212529;
-        }
+      .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #212529;
+        margin-bottom: 15px;
+      }
 
-        .suggest-edit {
-            font-size: 14px;
-            color: #6f42c1;
-            text-decoration: none;
-        }
+      .description {
+        font-size: 16px;
+        color: #495057;
+        margin-bottom: 20px;
+        line-height: 1.7;
+      }
 
-        .content-section {
-            margin-bottom: 40px;
-        }
+      .highlight {
+        color: #6f42c1;
+        text-decoration: none;
+      }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #212529;
-            margin-bottom: 15px;
-        }
+      .highlight:hover {
+        text-decoration: underline;
+      }
 
-        .description {
-            font-size: 16px;
-            color: #495057;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
+      .whats-next {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+      }
 
-        .highlight {
-            color: #6f42c1;
-            text-decoration: none;
-        }
+      .whats-next h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #212529;
+      }
 
-        .highlight:hover {
-            text-decoration: underline;
-        }
+      .whats-next p {
+        color: #495057;
+        margin-bottom: 15px;
+      }
 
-        .whats-next {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
+      .link-list {
+        list-style: none;
+      }
 
-        .whats-next h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #212529;
-        }
+      .link-list li {
+        margin-bottom: 8px;
+      }
 
-        .whats-next p {
-            color: #495057;
-            margin-bottom: 15px;
-        }
+      .link-list a {
+        color: #6f42c1;
+        text-decoration: none;
+        font-size: 14px;
+      }
 
-        .link-list {
-            list-style: none;
-        }
+      .link-list a:hover {
+        text-decoration: underline;
+      }
 
-        .link-list li {
-            margin-bottom: 8px;
-        }
-
-        .link-list a {
-            color: #6f42c1;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .link-list a:hover {
-            text-decoration: underline;
-        }
-
-        .updated-info {
-            font-size: 12px;
-            color: #6c757d;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e9ecef;
-        }
+      .updated-info {
+        font-size: 12px;
+        color: #6c757d;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #e9ecef;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <div class="logo">Socket</div>
-        <div class="header-right">
-            <div class="nav-tabs">
-                <a href="#">🔗 Documentation</a>
-                <a href="#">🎯 API Reference</a>
-            </div>
-            <div class="search-box">
-                <input type="text" placeholder="Search">
-            </div>
-            <a href="#" class="login-btn">Log in</a>
+      <div class="logo">
+        <a href="index.html">
+          <img
+            src="https://files.readme.io/dd278d5-small-logo-280x80.png"
+            alt=""
+          />
+        </a>
+      </div>
+      <div class="header-right">
+        <div class="nav-tabs">
+          <a href="#">🔗 Documentation</a>
+          <a href="APIReference.html">🎯 API Reference</a>
         </div>
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+        </div>
+        <a href="#" class="login-btn">Log in</a>
+      </div>
     </header>
 
     <div class="container">
-        <nav class="sidebar">
-            <div class="sidebar-section">
-                <div class="sidebar-title">Introduction</div>
-                <a href="#" class="sidebar-item active">Getting started</a>
-                <a href="#" class="sidebar-item">FAQ</a>
-            </div>
+      <nav class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-title">Introduction</div>
+          <a href="#" class="sidebar-item active">Getting started</a>
+          <a href="#" class="sidebar-item">FAQ</a>
+        </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Socket Alerts</div>
-                <a href="#" class="sidebar-item">Reachability Analysis</a>
-                <a href="#" class="sidebar-item">Ecosystem Support</a>
-                <a href="#" class="sidebar-item">Alert Types</a>
-                <a href="#" class="sidebar-item">Alert Actions</a>
-                <a href="#" class="sidebar-item">Alert Actions and Triage Functionality</a>
-                <a href="#" class="sidebar-item">Package Scores</a>
-                <a href="#" class="sidebar-item">Manifest File Detection in Socket</a>
-            </div>
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket Alerts</div>
+          <a href="#" class="sidebar-item">Reachability Analysis</a>
+          <a href="#" class="sidebar-item">Ecosystem Support</a>
+          <a href="#" class="sidebar-item">Alert Types</a>
+          <a href="#" class="sidebar-item">Alert Actions</a>
+          <a href="#" class="sidebar-item"
+            >Alert Actions and Triage Functionality</a
+          >
+          <a href="#" class="sidebar-item">Package Scores</a>
+          <a href="#" class="sidebar-item">Manifest File Detection in Socket</a>
+        </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Socket Dashboard</div>
-                <a href="#" class="sidebar-item">Organization Alerts</a>
-                <a href="#" class="sidebar-item">Dependency Search</a>
-                <a href="#" class="sidebar-item">Repositories</a>
-                <a href="#" class="sidebar-item">Reports</a>
-                <a href="#" class="sidebar-item">Security Policy (Default Enabled Alerts)</a>
-                <a href="#" class="sidebar-item">License Policy</a>
-                <a href="#" class="sidebar-item">Threat Feed</a>
-                <a href="#" class="sidebar-item">Package Search</a>
-                <a href="#" class="sidebar-item">Users</a>
-                <a href="#" class="sidebar-item">Settings</a>
-                <a href="#" class="sidebar-item">Integrations</a>
-            </div>
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket Dashboard</div>
+          <a href="#" class="sidebar-item">Organization Alerts</a>
+          <a href="#" class="sidebar-item">Dependency Search</a>
+          <a href="#" class="sidebar-item">Repositories</a>
+          <a href="#" class="sidebar-item">Reports</a>
+          <a href="#" class="sidebar-item"
+            >Security Policy (Default Enabled Alerts)</a
+          >
+          <a href="#" class="sidebar-item">License Policy</a>
+          <a href="#" class="sidebar-item">Threat Feed</a>
+          <a href="#" class="sidebar-item">Package Search</a>
+          <a href="#" class="sidebar-item">Users</a>
+          <a href="#" class="sidebar-item">Settings</a>
+          <a href="#" class="sidebar-item">Integrations</a>
+        </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Integrations</div>
-                <a href="#" class="sidebar-item">CI/CD Github App/CLI</a>
-                <a href="#" class="sidebar-item">Slack Alerts</a>
-                <a href="#" class="sidebar-item">Vercel Integration</a>
-            </div>
+        <div class="sidebar-section">
+          <div class="sidebar-title">Integrations</div>
+          <a href="#" class="sidebar-item">CI/CD Github App/CLI</a>
+          <a href="#" class="sidebar-item">Slack Alerts</a>
+          <a href="#" class="sidebar-item">Vercel Integration</a>
+        </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Socket for GitHub</div>
-                <a href="#" class="sidebar-item">Guide to Socket for GitHub</a>
-                <a href="#" class="sidebar-item">Install the App</a>
-                <a href="#" class="sidebar-item">Ignoring pull request alerts</a>
-            </div>
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket for GitHub</div>
+          <a href="#" class="sidebar-item">Guide to Socket for GitHub</a>
+          <a href="#" class="sidebar-item">Install the App</a>
+          <a href="#" class="sidebar-item">Ignoring pull request alerts</a>
+        </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Socket CLI</div>
-                <a href="#" class="sidebar-item">What to do when you receive an alert</a>
-                <a href="#" class="sidebar-item">GitHub App Permissions</a>
-                <a href="#" class="sidebar-item">Enable branch protection</a>
-                <a href="#" class="sidebar-item">Understanding "Act on Your Behalf" Permission</a>
-            </div>
+        <div class="sidebar-section">
+          <div class="sidebar-title">Socket CLI</div>
+          <a href="#" class="sidebar-item"
+            >What to do when you receive an alert</a
+          >
+          <a href="#" class="sidebar-item">GitHub App Permissions</a>
+          <a href="#" class="sidebar-item">Enable branch protection</a>
+          <a href="#" class="sidebar-item"
+            >Understanding "Act on Your Behalf" Permission</a
+          >
+        </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">CI/CD Integrations</div>
-                <a href="#" class="sidebar-item">Socket for GitHub Actions</a>
-            </div>
-        </nav>
+        <div class="sidebar-section">
+          <div class="sidebar-title">CI/CD Integrations</div>
+          <a href="#" class="sidebar-item">Socket for GitHub Actions</a>
+        </div>
+      </nav>
 
-        <main class="main-content">
-            <div class="content-header">
-                <h1 class="page-title">Getting started</h1>
-                <a href="#" class="suggest-edit">📝 Suggest Edit</a>
-            </div>
+      <main class="main-content">
+        <div class="content-header">
+          <h1 class="page-title">Getting started</h1>
+          <a href="#" class="suggest-edit">📝 Suggest Edit</a>
+        </div>
 
-            <div class="description">
-                Socket fights vulnerabilities and provides visibility, defense-in-depth, and proactive supply chain protection for your open source dependencies.
-            </div>
+        <div class="description">
+          Socket fights vulnerabilities and provides visibility,
+          defense-in-depth, and proactive supply chain protection for your open
+          source dependencies.
+        </div>
 
-            <div class="description">
-                The Socket team are all prolific open source maintainers (our open source packages collectively have 1 billion+ downloads per month). Socket customers include Vercel, Bigint, and Brave. Socket is also used by prominent open source projects such as Nuxtjs, Storybook, and Metamask.
-            </div>
+        <div class="description">
+          The Socket team are all prolific open source maintainers (our open
+          source packages collectively have 1 billion+ downloads per month).
+          Socket customers include Vercel, Bigint, and Brave. Socket is also
+          used by prominent open source projects such as Nuxtjs, Storybook, and
+          Metamask.
+        </div>
 
-            <div class="description">
-                We provide a couple of different ways in which this protection can be applied:
-            </div>
+        <div class="description">
+          We provide a couple of different ways in which this protection can be
+          applied:
+        </div>
 
-            <div class="content-section">
-                <h2 class="section-title">Socket for GitHub</h2>
-                <div class="description">
-                    The easiest and most powerful approach we have is <a href="#" class="highlight">Socket for GitHub</a>. You simply install it to your repositories and it will start running checks on PRs right away and provide feedback to you.
-                </div>
-            </div>
+        <div class="content-section">
+          <h2 class="section-title">Socket for GitHub</h2>
+          <div class="description">
+            The easiest and most powerful approach we have is
+            <a href="#" class="highlight">Socket for GitHub</a>. You simply
+            install it to your repositories and it will start running checks on
+            PRs right away and provide feedback to you.
+          </div>
+        </div>
 
-            <div class="content-section">
-                <h2 class="section-title">Socket CLI</h2>
-                <div class="description">
-                    You can of course be able to interact with us through the <a href="#" class="highlight">Socket CLI</a>. This is especially useful for those of you who are not using GitHub or those of you who want more control over how you interact with Socket than what our GitHub App can give.
-                </div>
-            </div>
+        <div class="content-section">
+          <h2 class="section-title">Socket CLI</h2>
+          <div class="description">
+            You can of course be able to interact with us through the
+            <a href="#" class="highlight">Socket CLI</a>. This is especially
+            useful for those of you who are not using GitHub or those of you who
+            want more control over how you interact with Socket than what our
+            GitHub App can give.
+          </div>
+        </div>
 
-            <div class="content-section">
-                <h2 class="section-title">Socket for VS Code</h2>
-                <div class="description">
-                    For those who prefer working within their code editor, we've got you covered with the <a href="#" class="highlight">Socket VS Code Extension</a>. This handy tool brings the power of Socket right into your workspace. It allows you to scan your projects directly from VS Code, providing real-time feedback and recommendations. It's like having a vigilant security guard always on duty within your coding environment, helping you to spot and fix vulnerabilities before they become a problem.
-                </div>
-            </div>
+        <div class="content-section">
+          <h2 class="section-title">Socket for VS Code</h2>
+          <div class="description">
+            For those who prefer working within their code editor, we've got you
+            covered with the
+            <a href="#" class="highlight">Socket VS Code Extension</a>. This
+            handy tool brings the power of Socket right into your workspace. It
+            allows you to scan your projects directly from VS Code, providing
+            real-time feedback and recommendations. It's like having a vigilant
+            security guard always on duty within your coding environment,
+            helping you to spot and fix vulnerabilities before they become a
+            problem.
+          </div>
+        </div>
 
-            <div class="content-section">
-                <h2 class="section-title">Socket REST API</h2>
-                <div class="description">
-                    Our <a href="#" class="highlight">Socket REST API</a> enables you to make use of our feature set in a more customized approach that you yourself (or some very smart friend of yours or in the community) tailor for your very own needs. As easy! Nope, have I just got good! Yep, or even better! If you Add that secret sauce of yours to it.
-                </div>
-            </div>
+        <div class="content-section">
+          <h2 class="section-title">Socket REST API</h2>
+          <div class="description">
+            Our <a href="#" class="highlight">Socket REST API</a> enables you to
+            make use of our feature set in a more customized approach that you
+            yourself (or some very smart friend of yours or in the community)
+            tailor for your very own needs. As easy! Nope, have I just got good!
+            Yep, or even better! If you Add that secret sauce of yours to it.
+          </div>
+        </div>
 
-            <div class="content-section">
-                <h2 class="section-title">Socket JavaScript SDK</h2>
-                <div class="description">
-                    The <a href="#" class="highlight">Socket JavaScript SDK</a> is a powerful tool that simplifies the use of our REST API in your project. It comes with types included, making your coding process smoother and more efficient. This SDK allows you to harness the full potential of Socket's features in a more tailored way, giving you the flexibility to customize as per your specific needs. It's like having a Swiss Army knife for your application security, ready to be wielded in any unique way that suits you best.
-                </div>
-            </div>
+        <div class="content-section">
+          <h2 class="section-title">Socket JavaScript SDK</h2>
+          <div class="description">
+            The <a href="#" class="highlight">Socket JavaScript SDK</a> is a
+            powerful tool that simplifies the use of our REST API in your
+            project. It comes with types included, making your coding process
+            smoother and more efficient. This SDK allows you to harness the full
+            potential of Socket's features in a more tailored way, giving you
+            the flexibility to customize as per your specific needs. It's like
+            having a Swiss Army knife for your application security, ready to be
+            wielded in any unique way that suits you best.
+          </div>
+        </div>
 
-            <div class="updated-info">
-                Updated 2 months ago
-            </div>
+        <div class="updated-info">Updated 2 months ago</div>
 
-            <div class="whats-next">
-                <h3>What's next</h3>
-                <p>Pick your way to get protected + get any remaining questions answered:</p>
-                <ul class="link-list">
-                    <li><a href="#">Introduction to Socket for GitHub</a></li>
-                    <li><a href="#">Introduction to Socket CLI</a></li>
-                    <li><a href="#">Introduction to Socket for VS Code</a></li>
-                    <li><a href="#">Socket JavaScript SDK ↗</a></li>
-                    <li><a href="#">Socket REST API ↗</a></li>
-                </ul>
-            </div>
-        </main>
+        <div class="whats-next">
+          <h3>What's next</h3>
+          <p>
+            Pick your way to get protected + get any remaining questions
+            answered:
+          </p>
+          <ul class="link-list">
+            <li><a href="#">Introduction to Socket for GitHub</a></li>
+            <li><a href="#">Introduction to Socket CLI</a></li>
+            <li><a href="#">Introduction to Socket for VS Code</a></li>
+            <li><a href="#">Socket JavaScript SDK ↗</a></li>
+            <li><a href="#">Socket REST API ↗</a></li>
+          </ul>
+        </div>
+      </main>
     </div>
 
     <script>
-        // Add some interactivity
-        document.querySelectorAll('.sidebar-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Remove active class from all items
-                document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-                
-                // Add active class to clicked item
-                this.classList.add('active');
-                
-                // Update main content title (simple simulation)
-                const title = this.textContent;
-                document.querySelector('.page-title').textContent = title;
-            });
-        });
+      // Add some interactivity
+      document.querySelectorAll(".sidebar-item").forEach((item) => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
 
-        // Search functionality
-        const searchInput = document.querySelector('.search-box input');
-        searchInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                alert('Search for: ' + this.value);
-            }
-        });
+          // Remove active class from all items
+          document
+            .querySelectorAll(".sidebar-item")
+            .forEach((i) => i.classList.remove("active"));
 
-        // Keyboard shortcut for search
-        document.addEventListener('keydown', function(e) {
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault();
-                searchInput.focus();
-            }
+          // Add active class to clicked item
+          this.classList.add("active");
+
+          // Update main content title (simple simulation)
+          const title = this.textContent;
+          document.querySelector(".page-title").textContent = title;
         });
+      });
+
+      // Search functionality
+      const searchInput = document.querySelector(".search-box input");
+      searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          alert("Search for: " + this.value);
+        }
+      });
+
+      // Keyboard shortcut for search
+      document.addEventListener("keydown", function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

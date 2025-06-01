@@ -689,7 +689,7 @@ body {
 .social-links a {
   width: 40px;
   height: 40px;
-
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -1083,13 +1083,6 @@ body {
   padding: 0 20px;
 }
 
-.footer-main {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
 .logo-section {
   display: flex;
   align-items: flex-start;
@@ -1150,7 +1143,7 @@ body {
 }
 
 .hiring-badge {
-  background: #f59e0b;
+  background: #7c3aed;
   color: white;
   padding: 2px 8px;
   border-radius: 12px;
@@ -1192,7 +1185,7 @@ body {
 }
 
 .newsletter-button {
-  background: #f59e0b;
+  background: #7c3aed;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -1225,7 +1218,7 @@ body {
 .social-links a {
   width: 40px;
   height: 40px;
-
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   display: flex;
   align-items: center;
