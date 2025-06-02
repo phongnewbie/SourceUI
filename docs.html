@@ -1080,6 +1080,116 @@ npm init -y</code></pre>
 
 
     </div>
+
+
+    <div id="ManifestFileDetectioninSocket" class="tab-content">
+        <div class="manifest-container">
+            <div class="page-header">
+                <h1 class="page-title">Manifest File Detection in Socket</h1>
+                <a href="#" class="edit-suggestion">📝 Suggest Edits</a>
+            </div>
+    
+            <div class="overview-section">
+                <a href="#" class="ai-helper">🤖 Ask AI</a>
+                <p class="intro-text">
+                    Socket's file detection system is designed to identify and analyze key manifest files and specific patterns across various 
+                    programming languages and package managers. These manifest files are crucial for dependency management and 
+                    <a href="#" class="highlight-text">security auditing</a>, allowing Socket to provide comprehensive security insights and alerts. Here's how Socket detects and 
+                    recognizes these files:
+                </p>
+            </div>
+    
+            <div class="content-section">
+                <h2 class="section-title">Supported Manifest Files</h2>
+                <p class="section-description">
+                    Socket automatically scans for a variety of <a href="#" class="highlight-text">manifest file types</a>. The primary file types it looks for include:
+                </p>
+    
+                <div class="subsection">
+                    <div class="language-group">
+                        <div class="language-header">Python (PyPI):</div>
+                        <ul class="file-list">
+                            <li class="file-item">requirements.txt</li>
+                            <li class="file-item">requirements/*.txt <span class="file-note">(when placed in a <span class="inline-code">requirements</span> folder)</span></li>
+                            <li class="file-item">Pipfile</li>
+                            <li class="file-item">pyproject.toml</li>
+                            <li class="file-item">setup.py</li>
+                            <li class="file-item">poetry.lock</li>
+                        </ul>
+                    </div>
+    
+                    <div class="language-group">
+                        <div class="language-header">JavaScript (NPM, Yarn, PNPM):</div>
+                        <ul class="file-list">
+                            <li class="file-item">package.json</li>
+                            <li class="file-item">package-lock.json</li>
+                            <li class="file-item">npm-shrinkwrap.json</li>
+                            <li class="file-item">yarn.lock</li>
+                            <li class="file-item">pnpm-lock.yaml</li>
+                            <li class="file-item">pnpm-workspace.yaml</li>
+                        </ul>
+                    </div>
+    
+                    <div class="language-group">
+                        <div class="language-header">Java (Maven):</div>
+                        <ul class="file-list">
+                            <li class="file-item">pom.xml</li>
+                        </ul>
+                    </div>
+    
+                    <div class="language-group">
+                        <div class="language-header">Go (GoLang):</div>
+                        <ul class="file-list">
+                            <li class="file-item">go.mod</li>
+                            <li class="file-item">go.sum</li>
+                        </ul>
+                    </div>
+    
+                    <div class="language-group">
+                        <div class="language-header">Ruby (Gem):</div>
+                        <ul class="file-list">
+                            <li class="file-item">Gemfile.lock</li>
+                            <li class="file-item">*.gemspec</li>
+                        </ul>
+                    </div>
+    
+                    <div class="language-group">
+                        <div class="language-header">Gradle (SPDX or CycloneDX):</div>
+                        <ul class="file-list">
+                            <li class="file-item">*.spdx.json</li>
+                            <li class="file-item">*.cdx.json</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="warning-section">
+                <div class="warning-title">Malicious Package Alerts</div>
+                <p class="warning-text">
+                    If you have included known malicious packages in your project but are not receiving alerts, it may be due to the folder 
+                    structure or the naming conventions of your manifest files. Ensuring that your manifest files follow the <a href="#" class="highlight-text">supported 
+                    patterns</a> should resolve these issues. Additionally, make sure that the malicious packages are correctly installed or 
+                    referenced within these recognized manifest files.
+                </p>
+            </div>
+    
+            <div class="info-section">
+                <div class="info-title">Ensuring Effective Detection</div>
+                <p class="info-text">
+                    To ensure that Socket can properly detect and analyze all relevant files:
+                </p>
+                <ul class="recommendation-list">
+                    <li class="recommendation-item">Follow the recommended file naming conventions.</li>
+                    <li class="recommendation-item">Place custom manifest files within expected directories.</li>
+                </ul>
+            </div>
+        </div>
+            </div> 
+
+
+
+
+
     <div id="PackageScores" class="tab-content">
       <div class="containerScores">
         <!-- Header -->
