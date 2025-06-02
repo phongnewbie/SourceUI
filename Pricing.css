@@ -162,7 +162,7 @@
   z-index: 1001;
   flex-wrap: wrap;
   gap: 2rem;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
@@ -171,6 +171,29 @@
 /* Hiển thị dropdown khi hover hoặc focus */
 .dropdown-parent:hover .dropdown-menu,
 .dropdown-parent:focus-within .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Thêm padding để tạo vùng đệm cho dropdown */
+.dropdown-parent {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* Điều chỉnh vị trí dropdown menu */
+.dropdown-menu {
+  margin-top: -20px;
+}
+
+/* Thêm transition delay để tránh biến mất quá nhanh */
+.dropdown-parent:hover .dropdown-menu {
+  transition-delay: 0.1s;
+}
+
+.dropdown-menu:hover {
   display: flex;
   opacity: 1;
   pointer-events: auto;

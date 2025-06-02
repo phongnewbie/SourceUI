@@ -171,7 +171,7 @@
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 10px);
-
+  left: 20%;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(80, 64, 160, 0.12),
