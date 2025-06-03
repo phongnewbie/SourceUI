@@ -1,4 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 17px !important;
+}
+
 /* Tab System */
+
 .tab-content {
   display: none;
   animation: fadeIn 0.3s ease-in-out;
