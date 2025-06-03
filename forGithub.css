@@ -717,46 +717,37 @@ header {
 
 .cta-buttons {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-  flex-wrap: wrap;
-  margin-bottom: 60px;
+.cta-buttons a {
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .btn {
-  padding: 10px 20px;
-
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
   font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.2s ease;
   cursor: pointer;
-  font-size: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  color: white;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+  text-decoration: none;
 }
 
 .btn-secondary {
-  background: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+  background: #7c3aed;
+  color: white;
+  border: none;
 }
 
 .btn-secondary:hover {
-  background: #667eea;
-  color: white;
-  transform: translateY(-2px);
+  background: #6d28d9;
+  transform: translateY(-1px);
 }
 
 .dashboard-preview {
