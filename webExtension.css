@@ -1083,7 +1083,6 @@ body {
 /* Thêm padding để tạo vùng đệm cho dropdown */
 .dropdown-parent {
   position: relative;
-  padding-bottom: 20px;
 }
 
 /* Điều chỉnh vị trí dropdown menu */
