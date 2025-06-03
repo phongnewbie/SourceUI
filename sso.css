@@ -11,8 +11,6 @@ body {
 
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
 }
 .signin-container {
   background: white;
@@ -645,7 +643,7 @@ body {
 }
 
 .login-container {
-  margin-top: 100px;
+  margin-top: 150px;
   margin-bottom: 50px;
   max-width: 400px;
   position: relative;
