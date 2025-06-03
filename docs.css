@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 14px !important;
+  font-size: 17px !important;
 }
 
 body {
@@ -91,7 +91,7 @@ img {
 }
 
 .sidebar {
-  width: 280px;
+  width: 500px;
   background: white;
   border-right: 1px solid #e9ecef;
   padding: 20px 0;
@@ -134,7 +134,7 @@ img {
 
 .main-content {
   flex: 1;
-  padding: 10px;
+
   background: white;
 }
 
