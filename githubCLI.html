@@ -664,12 +664,14 @@
               Whenever a new dependency is added in a pull request, Socket
               analyzes the package in terms of its security risk.
             </p>
-            <div class="cta-buttons">
+            <div class="">
               <a
-                href="https://calendly.com/socketinc/demo?month=2025-06"
-                class="btn btn-secondary"
-                >Contact Sales</a
+                href="https://calendly.com/socketinc/demo?month=2025-06l"
+                class="outline-button"
               >
+                Contact Sales
+                <span class="icon-arrow"></span>
+              </a>
             </div>
           </div>
           <div
@@ -1019,11 +1021,10 @@
           Get actionable alerts for the supply chain risks that matter. Socket
           highlights risky dependencies directly within the developer workflow.
         </p>
-        <div class="button-group">
+        <div class="">
           <a
             href="https://calendly.com/socketinc/demo?month=2025-06l"
             class="outline-button"
-            onclick="contactSales()"
           >
             Contact Sales
             <span class="icon-arrow"></span>
@@ -1162,6 +1163,18 @@
       </div>
     </footer>
 
+    <script>
+      // Add click tracking for demo purposes
+      document.querySelectorAll(".card-link").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          console.log("Clicked:", this.textContent.trim());
+          // In a real app, this would track the click or navigate to the actual page
+        });
+      });
+
+      // Add hover effect to logo strip
+    </script>
     <script src="githubCLI.js"></script>
   </body>
 </html>
