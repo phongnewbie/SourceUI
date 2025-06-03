@@ -32,8 +32,8 @@
         <div class="sidebar-section">
           <div class="sidebar-title">Introduction</div>
           <a href="#" class="sidebar-item" data-content="FAQ">FAQ</a>
-          <a href="#" class="sidebar-item" data-content="installation"
-            >Installation</a
+          <a href="#" class="sidebar-item" data-content="Gettingstarted"
+            >Getting started</a
           >
          
         </div>
@@ -190,101 +190,96 @@
         </div>
 
         <!-- Installation Content -->
-        <div id="installation" class="tab-content">
-
-          <div class="containers">
-            <div class="headers">
-                <h1 class="faq-title">INSTALLATION</h1>
-                <a href="#" class="suggest-edit">📝 Suggest Edits</a>
+        <div id="Gettingstarted" class="tab-content" >
+            <header class="page-header">
+                <h1 class="page-title">Getting started</h1>
+                <div class="header-actions">
+                    <a href="#" class="reachability-suggest-edit">📝 Suggest Edits</a>
+                    <button class="reachability-ask-ai">🤖 Ask AI ▼</button>
+                </div>
+            </header>
+    
+            <div class="intro-content">
+                <p class="intro-text">Socket fights vulnerabilities and provides visibility, defense-in-depth, and proactive supply chain protection for your open source dependencies.</p>
+                <p class="intro-text">The Socket team are all prolific open source maintainers (our open source packages collectively have 1 billion+ downloads per month). Our customers include <a href="#">Vercel</a>, <a href="#">Figma</a>, and <a href="#">Braze</a>. Socket is also used by prominent open source projects such as <a href="#">NextJS</a>, <a href="#">Storybook</a>, and <a href="#">Mastodon</a>.</p>
+                <p class="intro-text">We provide a couple of different ways in which this protection can be applied.</p>
             </div>
-            
-            <p class="subtitle">Frequently Asked Questions</p>
     
-            <div class="intro-text">
-                We're working to make Socket the best open source security tool.
-                <br><br>
-                If you have a question, <a href="#" class="community-link">join the community</a> and ask!
-            </div>
-    
-            <button class="ask-ai-btn">🤖 Ask AI ▼</button>
-            <div class="clearfix"></div>
-    
-            <div class="question">
-                <h2>What is Socket?</h2>
-                <div class="answer">
-                    <p>Socket is a new security company that can protect your most critical apps from supply chain attacks. We are taking an entirely new approach to one of the hardest problems in security in a segment part of the industry that has historically been obsessed with just reporting on known vulnerabilities.</p>
+            <div class="doc-section">
+                <h2 class="section-title">Socket for GitHub</h2>
+                <div class="section-body">
+                    <p>The easiest and most efficient approach we have is <a href="#" onclick="handleLinkClick(this)">Socket for GitHub</a>. You simply install it to your repositories and it will start running checks on PR right away and provide feedback to you.</p>
                 </div>
             </div>
     
-            <div class="question">
-                <h2>Who built Socket?</h2>
-                <div class="answer">
-                    <p>Socket is built by a team of open source maintainers with over 1 billion monthly downloads. Everyone on the Socket team is an open source maintainer. We are all driven to defend the open source ecosystem from supply chain attacks and make it safe for everyone.</p>
+            <div class="doc-section">
+                <h2 class="section-title">Socket CLI</h2>
+                <div class="section-body">
+                    <p>You can of course be able to interact with us through the <a href="#" onclick="handleLinkClick(this)">Socket CLI</a>. This is especially useful for those of you who are not using GitHub or those of you who want more control over how you interact with Socket than what our GitHub App can give.</p>
                 </div>
             </div>
     
-            <div class="question">
-                <h2>What does Socket do?</h2>
-                <div class="answer">
-                    <p>Socket is unique because, <span class="highlight">unlike other tools</span>, it detects and blocks supply chain attacks before they strike, mitigating the worst consequences:</p>
-                    
-                    <ul class="feature-list">
-                        <li><span class="feature-title">Supply Chain Attack Prevention:</span> Prevent compromised or hijacked packages from infiltrating your supply chain by monitoring all dependency changes in real-time.</li>
-                        <li><span class="feature-title">Package Behavior Analysis:</span> Detect when dependency updates introduce new risky API usage such as network, shell, filesystem, etc.</li>
-                        <li><span class="feature-title">Comprehensive Protection:</span> Block malware, typo-squatting, hidden code, misleading packages, permission creep, and <span class="code-ref">60+ red flags</span> in open source code. See <a href="#" class="link">package issues</a>.</li>
-                    </ul>
+            <div class="doc-section">
+                <h2 class="section-title">Socket for VS Code</h2>
+                <div class="section-body">
+                    <p>For those who prefer working within their code editor, we've got you covered with the <a href="#" onclick="handleLinkClick(this)">Socket VS Code Extension</a>. This handy tool allows full power of Socket right into your IDE, so it allows you to scan your projects directly from VS Code, providing real-time feedback and recommendations. It's like having a vigilant security guard, always on duty within your coding environment, helping you to spot and fix vulnerabilities before they become a problem.</p>
                 </div>
             </div>
     
-            <div class="question">
-                <h2>How is Socket different from other code scanning tools?</h2>
-                <div class="answer">
-                    <p>The market is flooded with the ability scanners (which find CVEs in your dependencies) and static analysis tools (which analyze your app code).</p>
-                    
-                    <p>Both of these approaches are less than helpful at detecting supply chain attacks of the sort we've seen exploding in the open source ecosystem:</p>
-    
-                    <ul class="comparison-list">
-                        <li><strong>Vulnerability scanning tools</strong> merely look up the packages you're using and compare them to data in the public CVE databases such as <span class="code-ref">NVD</span>. When they find a match, they send you an alert to upgrade to a new version. This is too slow to stop an attack and gives attackers.</li>
-                        <li><strong>Traditional static analysis tools</strong> are way too noisy when run on third-party code, and don't provide actionable results. Most developers aren't running static analysis tools on their own code, let alone third-party code.</li>
-                    </ul>
-    
-                    <p>Socket is different from traditional supply chain attack in your dependencies. We built Socket specifically to help catch supply chain attacks such as these that you might have seen in the news: <span class="code-ref">ua-parser-js</span>, <span class="code-ref">coa</span>, <span class="code-ref">rc</span>, <span class="code-ref">faker</span>, <span class="code-ref">colors</span>, and hundreds more.</p>
-    
-                    <p>Unlike a traditional vulnerability scanner, Socket can <strong>actually detect</strong> an active supply chain attack. Unlike a traditional static analysis tool, Socket provides actionable feedback about dependency risk, instead of hundreds of meaningless alerts.</p>
+            <div class="doc-section">
+                <h2 class="section-title">Socket REST API</h2>
+                <div class="section-body">
+                    <p>Our <a href="#" onclick="handleLinkClick(this)">Socket REST API</a> enables you to make use of our feature set in a more customized approach that you yourself (or some very smart friend of yours or in the community) tailor for your very own needs. As easy? Nope. Tanta just as good? Yep! Or even better if you add that secret spice of yours to it.</p>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-          <div class="content-section">
-            <h2 class="section-title">Getting Started with Socket</h2>
-            <p class="description">
-              Follow these steps to install and set up Socket in your
-              development environment.
-            </p>
-            <div class="installation-steps">
-              <div class="step">
-                <h3>1. Install the CLI</h3>
-                <pre><code>npm install @socketsecurity/cli</code></pre>
-              </div>
-              <div class="step">
-                <h3>2. Configure Socket</h3>
-                <pre><code>socket init</code></pre>
-              </div>
-              <div class="step">
-                <h3>3. Add to your project</h3>
-                <pre><code>socket add</code></pre>
-              </div>
+    
+            <div class="doc-section">
+                <h2 class="section-title">Socket JavaScript SDK</h2>
+                <div class="section-body">
+                    <p>The <a href="#" onclick="handleLinkClick(this)">Socket JavaScript SDK</a> is a powerful tool that simplifies the use of our REST API in your scripts. It comes with types included, making your coding process smoother and more efficient. This SDK allows you to harness the full potential of Socket features in the stickest way, giving you the flexibility to customize as per your specific needs. It's like having a Swiss Army knife for your application security, ready to be wielded in the unique ways that suits you best.</p>
+                    <div class="update-note">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Updated 10 months ago
+                    </div>
+                </div>
             </div>
-          </div>
+    
+            <div class="next-steps">
+                <h3 class="next-title">What's Next</h3>
+                <p class="next-description">Pick your way to get protected – get any remaining questions answered:</p>
+                <ul class="link-list">
+                    <li class="link-item">
+                        <a href="#" class="doc-link" onclick="handleNavigation('github')">Introduction to Socket for GitHub</a>
+                    </li>
+                    <li class="link-item">
+                        <a href="#" class="doc-link" onclick="handleNavigation('cli')">Introduction to Socket CLI</a>
+                    </li>
+                    <li class="link-item">
+                        <a href="#" class="doc-link" onclick="handleNavigation('vscode')">Introduction to Socket for VS Code</a>
+                    </li>
+                    <li class="link-item">
+                        <a href="#" class="doc-link" onclick="handleNavigation('sdk')">Socket JavaScript SDK</a>
+                    </li>
+                    <li class="link-item">
+                        <a href="#" class="doc-link" onclick="handleNavigation('api')">Socket REST API</a>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="page-feedback">
+                <p class="feedback-question">Did this page help you?</p>
+                <div class="feedback-options">
+                    <button class="feedback-option" onclick="submitFeedback('positive')">✓ Yes</button>
+                    <button class="feedback-option" onclick="submitFeedback('negative')">✗ No</button>
+                </div>
+            </div>
         </div>
 
-        Quick Start Content
+        
+
+      
        
     </div>
     <div id="quickstart" class="tab-content">
@@ -616,7 +611,7 @@ npm init -y</code></pre>
       <body class="alerts-wrapper">
         <div class="alerts-main-container">
             <div class="alerts-header-section">
-                <a href="#" class="alerts-suggest-edit">📝 Suggest Edits</a>
+                <a href="#" class="alerts-suggest-edit reachability-suggest-edit">📝 Suggest Edits</a>
                 <h1>Alert Types Support</h1>
                 <p>Which types of alerts are supported for which programming languages</p>
             </div>
@@ -893,14 +888,14 @@ npm init -y</code></pre>
         <!-- Header -->
         <div class="header_AlertActions">
             <h1>Alert Actions</h1>
-            <a href="#" class="suggest-edit">Suggest Edit</a>
+            <a href="#" class=" reachability-suggest-edit">📝 Suggest Edits</a>
         </div>
-
+        
+        <button class="ask-ai-btn">
+            🤖 Ask AI ▼
+        </button>
         <!-- Table Section -->
         <div class="table-container_AlertActions">
-            <button class="ask-ai-btn">
-                🤖 Ask AI ▼
-            </button>
             <table>
                 <thead>
                     <tr>
@@ -2538,24 +2533,7 @@ npm init -y</code></pre>
 
 
 
-
-           
-    
-
-          </div>
-
-
-          
-
-
-
-
-
-
-
-
-
-            <div id="LicensePolicy" class="tab-content">
+              <div id="LicensePolicy" class="tab-content">
                 <div class="containerSearch">
                     <div class="headerSearch">
                         <h1>License Policy</h1>
@@ -4177,6 +4155,12 @@ npm init -y</code></pre>
         
 
 
+
+
+           
+    
+
+          </div>
   
     <script src="docs.js"></script>
   </body>

@@ -694,14 +694,12 @@ header {
   color: #718096;
   margin-bottom: 40px;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .cta-buttons {
   display: flex;
   gap: 20px;
-  justify-content: center;
+
   flex-wrap: wrap;
   margin-bottom: 60px;
 }
