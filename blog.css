@@ -138,7 +138,17 @@ body {
   text-align: center;
   line-height: 1.4;
 }
-
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.3s ease;
+}
 /* Main Content */
 .main-content {
   max-width: 1200px;

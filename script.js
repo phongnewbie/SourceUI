@@ -1,7 +1,6 @@
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
     document.querySelector(this.getAttribute("href")).scrollIntoView({
       behavior: "smooth",
     });
@@ -12,28 +11,28 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 const header = document.querySelector(".header");
 let lastScroll = 0;
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
+// window.addEventListener("scroll", () => {
+//   const currentScroll = window.pageYOffset;
 
-  if (currentScroll <= 0) {
-    header.classList.remove("scroll-up");
-    return;
-  }
+//   if (currentScroll <= 0) {
+//     header.classList.remove("scroll-up");
+//     return;
+//   }
 
-  if (currentScroll > lastScroll && !header.classList.contains("scroll-down")) {
-    // Scroll Down
-    header.classList.remove("scroll-up");
-    header.classList.add("scroll-down");
-  } else if (
-    currentScroll < lastScroll &&
-    header.classList.contains("scroll-down")
-  ) {
-    // Scroll Up
-    header.classList.remove("scroll-down");
-    header.classList.add("scroll-up");
-  }
-  lastScroll = currentScroll;
-});
+//   if (currentScroll > lastScroll && !header.classList.contains("scroll-down")) {
+//     // Scroll Down
+//     header.classList.remove("scroll-up");
+//     header.classList.add("scroll-down");
+//   } else if (
+//     currentScroll < lastScroll &&
+//     header.classList.contains("scroll-down")
+//   ) {
+//     // Scroll Up
+//     header.classList.remove("scroll-down");
+//     header.classList.add("scroll-up");
+//   }
+//   lastScroll = currentScroll;
+// });
 
 // Add animation to feature cards when they come into view
 const featureObserverOptions = {
@@ -289,11 +288,6 @@ if (cubeContainer) {
     isDragging = false;
   });
 
-  // Prevent default drag behavior
-  renderer.domElement.addEventListener("dragstart", (e) => {
-    e.preventDefault();
-  });
-
   animate(); // Start the render loop
 } else {
   console.error("Cube container not found!");
@@ -400,3 +394,9 @@ tabs.forEach((tab) => {
 
 // Hiển thị mặc định tab đầu tiên
 renderAlerts("Supply chain risk");
+document.querySelectorAll(".card-link").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    console.log("Clicked:", this.textContent.trim());
+    // In a real app, this would track the click or navigate to the actual page
+  });
+});

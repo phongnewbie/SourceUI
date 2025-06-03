@@ -263,6 +263,24 @@ body {
   transform: translateY(-2px);
 }
 
+.btn-secondaryTwo {
+  background: transparent;
+  color: #6366f1;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #6366f1;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondaryTwo:hover {
+  background: #6366f1;
+  color: black;
+  transform: translateY(-2px);
+}
+
 /* Logo Slider */
 .logo-slider {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
