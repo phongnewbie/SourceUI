@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 14px !important;
 }
 
 body {
@@ -106,7 +107,6 @@ img {
   color: #666;
   text-transform: uppercase;
   margin-bottom: 10px;
-  padding: 0 20px;
 }
 
 .sidebar-item {
@@ -134,7 +134,7 @@ img {
 
 .main-content {
   flex: 1;
-  padding: 30px 40px;
+  padding: 10px;
   background: white;
 }
 
@@ -2937,8 +2937,6 @@ ol li {
 
 /* Main Content */
 .main-content {
-  padding: 20px 30px;
-
   margin: 0 auto;
 }
 
