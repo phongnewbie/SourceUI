@@ -119,11 +119,11 @@ a {
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-align: center;
-  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
 }
 
 .form-group {
@@ -133,25 +133,25 @@ a {
 .label {
   display: flex;
   align-items: center;
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
   margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.label-text {
+  margin-right: 4px;
 }
 
 .info-icon {
-  width: 16px;
-  height: 16px;
-  margin-left: 6px;
-  background-color: #6b7280;
-  border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 10px;
-  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  font-size: 12px;
   cursor: help;
+  color: #6b7280;
 }
 
 .input-field {
@@ -265,14 +265,6 @@ a {
   padding: 48px 40px;
   width: 100%;
   max-width: 400px;
-}
-
-.title {
-  font-size: 28px;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-align: center;
-  margin-bottom: 24px;
 }
 
 .signin-link {
