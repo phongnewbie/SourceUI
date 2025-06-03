@@ -1227,17 +1227,13 @@
       });
 
       // Add click tracking for demo purposes
-      document
-        .querySelectorAll(
-          ".card-link, .btn-primary, .btn-secondary, .cta-button"
-        )
-        .forEach((button) => {
-          button.addEventListener("click", function (e) {
-            e.preventDefault();
-            console.log("Clicked:", this.textContent.trim());
-            // In a real app, this would track the click or navigate to the actual page
-          });
+      document.querySelectorAll(".card-link").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          console.log("Clicked:", this.textContent.trim());
+          // In a real app, this would track the click or navigate to the actual page
         });
+      });
 
       // Add hover effect to logo strip
       const logoContainer = document.querySelector(".logos-container");
