@@ -640,118 +640,146 @@
         </div>
       </div>
     </nav>
-    <div class="signin-container">
-      <div class="signin-box">
-        <div class="signin-header">
-          <h1>Sign in to Socket</h1>
-          <p>Welcome back! Please enter your details.</p>
-        </div>
+    <div class="login-container">
+      <h1 class="logos">Sign in to Socket</h1>
 
-        <!-- Form đăng nhập thường -->
-        <form id="regularSigninForm" class="signin-form">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-          <div class="form-options">
-            <label class="remember-me">
-              <input type="checkbox" />
-              <span>Remember me</span>
-            </label>
-            <a href="#" class="forgot-password">Forgot password?</a>
-          </div>
-          <button type="submit" class="signin-button">Sign in</button>
-
-          <button type="button" class="sso-button" onclick="toggleForms()">
-            Continue with SSO
-          </button>
-        </form>
-
-        <!-- Form SSO -->
-        <form id="ssoForm" class="signin-form" style="display: none">
-          <div class="form-group">
-            <label for="ssoEmail">Work Email</label>
-            <input
-              type="email"
-              id="ssoEmail"
-              placeholder="Enter your work email"
-              required
-            />
-          </div>
-          <button type="submit" class="signin-button">Continue with SSO</button>
-
-          <button
-            type="button"
-            class="regular-signin-button"
-            onclick="toggleForms()"
-          >
-            Go back to login
-          </button>
-        </form>
-
-        <!-- Form đăng ký -->
-        <form id="signupForm" class="signin-form" style="display: none">
-          <div class="form-group">
-            <label for="signupEmail">Email</label>
-            <input
-              type="email"
-              id="signupEmail"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="signupPassword">Password</label>
-            <input
-              type="password"
-              id="signupPassword"
-              placeholder="Create a password"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              placeholder="Confirm your password"
-              required
-            />
-          </div>
-          <button type="submit" class="signin-button">Sign up</button>
-
-          <button
-            type="button"
-            class="regular-signin-button"
-            onclick="toggleToSignin()"
-          >
-            Already have an account? Sign in
-          </button>
-        </form>
-
-        <div class="signin-footer">
-          <p>
-            Don't have an account?
-            <a href="#" onclick="toggleToSignup(); return false;"
-              >Sign up for free</a
-            >
-          </p>
-        </div>
+      <div class="signup-link">
+        Don't have an account?
+        <a href="#" id="showSignupForm">Sign up for free</a>
       </div>
+
+      <form id="emailForm">
+        <div class="form-group">
+          <input type="email" placeholder="Enter your email" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Continue with email
+        </button>
+      </form>
+
+      <div class="divider">
+        <span>or</span>
+      </div>
+
+      <button class="btn btn-secondary">
+        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+          />
+        </svg>
+        <a
+          href="https://github.com/login?integration=socket-security&return_to=%2Fapps%2Fsocket-security%2Finstallations%2Fnew%2Fpermissions%3Ftarget_id%3D191702023"
+        >
+          Continue with GitHub
+        </a>
+      </button>
+
+      <button class="btn btn-secondary" id="ssoButton">
+        Continue with SSO
+      </button>
+
+      <div class="terms">
+        By continuing, you agree to our
+        <a href="Terms.html">Terms</a> and
+        <a href="Privacy.html">Privacy Policy</a>.
+      </div>
+    </div>
+
+    <!-- New SSO Form -->
+    <div class="login-container" id="ssoFormContainer" style="display: none">
+      <h1 class="title">Sign in to Socket</h1>
+
+      <form>
+        <div class="form-group">
+          <label class="label" for="org-slug">
+            Organization slug
+            <span class="info-icon">?</span>
+          </label>
+          <input
+            type="text"
+            id="org-slug"
+            name="org-slug"
+            class="input-field"
+          />
+          <a href="#" class="help-text"
+            >Don't know your organization slug? Ask your organization admin</a
+          >
+        </div>
+
+        <button type="button" class="sso-button">
+          <svg class="lock-icon" viewBox="0 0 24 24">
+            <path
+              d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"
+            />
+          </svg>
+          Continue with SSO
+        </button>
+
+        <button type="button" class="back-button" id="backToLogin">
+          <svg class="arrow-icon" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+          Go back to login
+        </button>
+      </form>
+
+      <p class="footer-text">
+        By continuing, you agree to our <a href="Terms.html">Terms</a> and
+        <a href="Privacy.html">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <!-- New Signup Form -->
+    <div
+      class="signup-container"
+      id="signupFormContainer"
+      style="display: none"
+    >
+      <h1 class="title">Create a free account</h1>
+
+      <p class="signin-link">
+        Already have an account?
+        <a href="#" id="backToLoginFromSignup">Sign in instead</a>
+      </p>
+
+      <form>
+        <div class="form-group">
+          <input
+            type="email"
+            class="email-input"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <button type="submit" class="primary-button">
+          Continue with email
+        </button>
+
+        <button type="button" class="secondary-button">
+          <svg class="github-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+          Continue with GitHub
+        </button>
+
+        <button type="button" class="secondary-button" id="ssoButtonFromSignup">
+          <svg class="sso-icon" viewBox="0 0 24 24">
+            <path
+              d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"
+            />
+          </svg>
+          Continue with SSO
+        </button>
+      </form>
+
+      <p class="footer-text">
+        By continuing, you agree to our <a href="Terms.html">Terms</a> and
+        <a href="Privacy.html">Privacy Policy</a>.
+      </p>
     </div>
 
     <footer class="footer-container">
@@ -885,64 +913,6 @@
       </div>
     </footer>
 
-    <script>
-      // Add some interactive effects
-      document.querySelectorAll(".btn").forEach((btn) => {
-        btn.addEventListener("mouseenter", function () {
-          this.style.transform = "translateY(-2px)";
-        });
-
-        btn.addEventListener("mouseleave", function () {
-          this.style.transform = "translateY(0)";
-        });
-      });
-
-      // Form validation
-      document.querySelectorAll("form").forEach((form) => {
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const email = this.querySelector('input[type="email"]').value;
-          if (email) {
-            alert(`Form submitted with email: ${email}`);
-          }
-        });
-      });
-
-      function toggleForms() {
-        const regularForm = document.getElementById("regularSigninForm");
-        const ssoForm = document.getElementById("ssoForm");
-        const signupForm = document.getElementById("signupForm");
-
-        if (regularForm.style.display === "none") {
-          regularForm.style.display = "block";
-          ssoForm.style.display = "none";
-          signupForm.style.display = "none";
-        } else {
-          regularForm.style.display = "none";
-          ssoForm.style.display = "block";
-          signupForm.style.display = "none";
-        }
-      }
-
-      function toggleToSignup() {
-        const regularForm = document.getElementById("regularSigninForm");
-        const ssoForm = document.getElementById("ssoForm");
-        const signupForm = document.getElementById("signupForm");
-
-        regularForm.style.display = "none";
-        ssoForm.style.display = "none";
-        signupForm.style.display = "block";
-      }
-
-      function toggleToSignin() {
-        const regularForm = document.getElementById("regularSigninForm");
-        const ssoForm = document.getElementById("ssoForm");
-        const signupForm = document.getElementById("signupForm");
-
-        regularForm.style.display = "block";
-        ssoForm.style.display = "none";
-        signupForm.style.display = "none";
-      }
-    </script>
+    <script src="signin.js"></script>
   </body>
 </html>
