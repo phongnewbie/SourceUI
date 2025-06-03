@@ -408,6 +408,7 @@ body {
   }
 }
 .container {
+  background-color: white;
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
@@ -431,30 +432,41 @@ body {
 
 .tabs {
   display: flex;
-  border-bottom: 1px solid #d0d7de;
-  margin-bottom: 24px;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
 }
 
 .tab {
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  color: #656d76;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  margin-right: 24px;
-  font-size: 14px;
+  padding: 0.75rem 1.5rem;
   cursor: pointer;
-  transition: all 0.2s;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  color: #6b7280;
+  transition: all 0.3s ease;
 }
 
 .tab:hover {
-  color: #24292f;
+  background-color: #f3f4f6;
+  color: #4b5563;
 }
 
 .tab.active {
-  color: #8250df;
-  border-bottom-color: #8250df;
+  background-color: #7c3aed;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content.active {
+  display: block;
 }
 
 .tab-icon {
@@ -531,6 +543,33 @@ body {
 
 .alert-info .alert-icon {
   color: #0969da;
+}
+
+.alert-info .alert-yellow {
+  color: yellow;
+}
+
+.alert-yellow {
+  background-color: #fff8e6;
+  border-left: 4px solid #f59e0b;
+}
+
+.alert-yellow .alert-icon {
+  color: #f59e0b;
+}
+
+.alert-yellow .alert-title {
+  color: #92400e;
+}
+
+.alert-yellow .alert-description {
+  color: #78350f;
+}
+
+.alert-yellow .alert-icon path {
+  d: path(
+    "M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22Z"
+  );
 }
 
 /* Icons */
@@ -857,4 +896,54 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
+}
+
+.alert-info .alert-black {
+  color: black;
+}
+
+.alert-black {
+  background-color: #fff8e6;
+  border-left: 4px solid #f59e0b;
+}
+
+.alert-black .alert-icon {
+  color: black;
+}
+
+.alert-black .alert-title {
+  color: #92400e;
+}
+
+.alert-black .alert-description {
+  color: #78350f;
+}
+
+.alert-black .alert-icon path {
+  d: path(
+    "M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22Z"
+  );
+}
+
+/* Icons */
+.icon-shield {
+  fill: currentColor;
+}
+
+.alert-gray .alert-icon {
+  color: #6b7280;
+}
+
+.alert-gray .alert-title {
+  color: #374151;
+}
+
+.alert-gray .alert-description {
+  color: #4b5563;
+}
+
+.alert-gray .alert-icon path {
+  d: path(
+    "M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12zm0-9a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm0-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+  );
 }

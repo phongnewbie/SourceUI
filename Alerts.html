@@ -328,36 +328,7 @@
                       </span>
                     </a>
                   </li>
-                  <li>
-                    <a href="FAQ.html" class="product-link">
-                      <span class="product-icon">
-                        <!-- FAQ SVG -->
-                        <svg
-                          width="24"
-                          height="24"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle cx="12" cy="12" r="12" fill="#F3F4F6" />
-                          <g>
-                            <path
-                              d="M12 17h.01M12 13a4 4 0 1 0-4-4"
-                              stroke="#7c3aed"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </g>
-                        </svg>
-                      </span>
-                      <span>
-                        <span class="product-title">FAQ</span>
-                        <span class="product-desc"
-                          >Answers to common questions</span
-                        >
-                      </span>
-                    </a>
-                  </li>
+
                   <li>
                     <a href="Alerts.html" class="product-link">
                       <span class="product-icon">
@@ -676,7 +647,7 @@
         <h1>Alerts</h1>
 
         <div class="tabs">
-          <div class="tab active">
+          <div class="tab active" data-tab="supply-chain">
             <svg class="tab-icon" viewBox="0 0 16 16">
               <path
                 fill="currentColor"
@@ -685,7 +656,7 @@
             </svg>
             Supply chain risk
           </div>
-          <div class="tab">
+          <div class="tab" data-tab="vulnerability">
             <svg class="tab-icon" viewBox="0 0 16 16">
               <path
                 fill="currentColor"
@@ -694,7 +665,7 @@
             </svg>
             Vulnerability
           </div>
-          <div class="tab">
+          <div class="tab" data-tab="quality">
             <svg class="tab-icon" viewBox="0 0 16 16">
               <path
                 fill="currentColor"
@@ -703,7 +674,7 @@
             </svg>
             Quality
           </div>
-          <div class="tab">
+          <div class="tab" data-tab="maintenance">
             <svg class="tab-icon" viewBox="0 0 16 16">
               <path
                 fill="currentColor"
@@ -712,7 +683,7 @@
             </svg>
             Maintenance
           </div>
-          <div class="tab">
+          <div class="tab" data-tab="license">
             <svg class="tab-icon" viewBox="0 0 16 16">
               <path
                 fill="currentColor"
@@ -724,168 +695,450 @@
         </div>
       </div>
 
-      <div class="alerts-list">
-        <div class="alert-item alert-critical">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">Known malware</div>
-            <div class="alert-description">
-              This package is malware. We have asked the package registry to
-              remove it.
+      <div id="supply-chain" class="tab-content">
+        <div class="alerts-list">
+          <div class="alert-item alert-critical">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Known malware</div>
+              <div class="alert-description">
+                This package is malware. We have asked the package registry to
+                remove it.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-critical">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Possible typosquat attack</div>
+              <div class="alert-description">
+                Package name is similar to other popular packages and may not be
+                the package you want.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">
+                <a href="#" class="alert-link">NPM Shrinkwrap</a>
+              </div>
+              <div class="alert-description">
+                Package contains a shrinkwrap file. This may allow the package
+                to bypass normal install procedures.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">
+                <a href="#" class="alert-link">Git dependency</a>
+              </div>
+              <div class="alert-description">
+                Contains a <a href="#" class="alert-link">dependency</a> which
+                resolves to a remote git URL. Dependencies fetched from git URLs
+                are not immutable and can be used to
+                <a href="#" class="alert-link"
+                  >inject untrusted code or reduce the likelihood</a
+                >
+                of a reproducible install.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">
+                <a href="#" class="alert-link">HTTP dependency</a>
+              </div>
+              <div class="alert-description">
+                Contains a <a href="#" class="alert-link">dependency</a> which
+                resolves to a remote HTTP URL which could be used to inject
+                untrusted code and reduce overall package reliability.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">
+                <a href="#" class="alert-link">Suspicious Stars on GitHub</a>
+              </div>
+              <div class="alert-description">
+                The GitHub repository of this package may have been artificially
+                inflated with stars (from bots, crowdsourcing, etc.).
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">
+                <a href="#" class="alert-link"
+                  >Protestware or potentially unwanted behavior</a
+                >
+              </div>
+              <div class="alert-description">
+                This package is a joke, parody, or includes undocumented or
+                hidden behavior unrelated to its primary function.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">
+                <a href="#" class="alert-link">Unstable ownership</a>
+              </div>
+              <div class="alert-description">
+                A new <a href="#" class="alert-link">collaborator</a> has begun
+                <a href="#" class="alert-link">publishing package versions</a>.
+                Package stability and security risk may be elevated.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">
+                <a href="#" class="alert-link">AI-detected potential malware</a>
+              </div>
+              <div class="alert-description"></div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="alert-item alert-critical">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">Possible typosquat attack</div>
-            <div class="alert-description">
-              Package name is similar to other popular packages and may not be
-              the package you want.
+      <div id="vulnerability" class="tab-content">
+        <div class="alerts-list">
+          <div class="alert-item alert-critical">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Critical CVE</div>
+              <div class="alert-description">
+                Contains a Critical Common Vulnerability and Exposure (CVE).
+              </div>
+            </div>
+          </div>
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">High CVE</div>
+              <div class="alert-description">
+                Contains a high severity Common Vulnerability and Exposure
+                (CVE).
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-yellow">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Medium CVE</div>
+              <div class="alert-description">
+                Contains a medium severity Common Vulnerability and Exposure
+                (CVE).
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-black">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Low CVE</div>
+              <div class="alert-description">
+                Contains a low severity Common Vulnerability and Exposure (CVE).
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="alert-item alert-warning">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">
-              <a href="#" class="alert-link">NPM Shrinkwrap</a>
+      <div id="quality" class="tab-content">
+        <div class="alerts-list">
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Code Quality Issues</div>
+              <div class="alert-description">
+                This package has several code quality issues that may affect
+                maintainability and reliability.
+              </div>
             </div>
-            <div class="alert-description">
-              Package contains a shrinkwrap file. This may allow the package to
-              bypass normal install procedures.
+          </div>
+          <div class="alert-item alert-yellow">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Code Style Issues</div>
+              <div class="alert-description">
+                This package has inconsistent code style that may affect
+                readability and maintainability.
+              </div>
+            </div>
+          </div>
+          <div class="alert-item alert-yellow">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Documentation Quality</div>
+              <div class="alert-description">
+                This package has incomplete or outdated documentation that may
+                make it harder to use.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-black">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Minified code</div>
+              <div class="alert-description">
+                This package contains minified code. This may be harmless in
+                some cases where minified code is included in packaged
+                libraries, however packages on npm should not minify code.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-gray">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12zm0-9a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm0-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Code Complexity</div>
+              <div class="alert-description">
+                This package has high code complexity that may make it harder to
+                maintain and debug.
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="alert-item alert-warning">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">
-              <a href="#" class="alert-link">Git dependency</a>
+      <div id="maintenance" class="tab-content">
+        <div class="alerts-list">
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Inactive Maintenance</div>
+              <div class="alert-description">
+                This package hasn't been updated in over 6 months, indicating
+                potential maintenance issues.
+              </div>
             </div>
-            <div class="alert-description">
-              Contains a <a href="#" class="alert-link">dependency</a> which
-              resolves to a remote git URL. Dependencies fetched from git URLs
-              are not immutable and can be used to
-              <a href="#" class="alert-link"
-                >inject untrusted code or reduce the likelihood</a
-              >
-              of a reproducible install.
+          </div>
+          <div class="alert-item alert-yellow">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Slow Response Time</div>
+              <div class="alert-description">
+                This package's maintainers have been slow to respond to issues
+                and pull requests.
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-item alert-gray">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12zm0-9a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm0-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Unmaintained</div>
+              <div class="alert-description">
+                Package has not been updated in more than 5 years and may be
+                unmaintained. Problems with the package may go unaddressed.
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="alert-item alert-warning">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">
-              <a href="#" class="alert-link">HTTP dependency</a>
-            </div>
-            <div class="alert-description">
-              Contains a <a href="#" class="alert-link">dependency</a> which
-              resolves to a remote HTTP URL which could be used to inject
-              untrusted code and reduce overall package reliability.
+      <div id="license" class="tab-content">
+        <div class="alerts-list">
+          <div class="alert-item alert-warning">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">License Issues</div>
+              <div class="alert-description">
+                This package has an unclear or restrictive license that may
+                affect your usage rights.
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="alert-item alert-warning">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">
-              <a href="#" class="alert-link">Suspicious Stars on GitHub</a>
-            </div>
-            <div class="alert-description">
-              The GitHub repository of this package may have been artificially
-              inflated with stars (from bots, crowdsourcing, etc.).
+          <div class="alert-item alert-yellow">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22Z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">License Review Needed</div>
+              <div class="alert-description">
+                This package's license may need review by your legal team before
+                use.
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="alert-item alert-warning">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">
-              <a href="#" class="alert-link"
-                >Protestware or potentially unwanted behavior</a
-              >
-            </div>
-            <div class="alert-description">
-              This package is a joke, parody, or includes undocumented or hidden
-              behavior unrelated to its primary function.
+          <div class="alert-item alert-gray">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12zm0-9a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm0-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Non-permissive License</div>
+              <div class="alert-description">
+                (Experimental) A license not known to be considered permissive
+                was found.
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="alert-item alert-warning">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">
-              <a href="#" class="alert-link">Unstable ownership</a>
-            </div>
-            <div class="alert-description">
-              A new <a href="#" class="alert-link">collaborator</a> has begun
-              <a href="#" class="alert-link">publishing package versions</a>.
-              Package stability and security risk may be elevated.
+          <div class="alert-item alert-gray">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12zm0-9a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm0-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Ambiguous License Classifier</div>
+              <div class="alert-description">
+                (Experimental) An ambiguous license classifier was found.
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="alert-item alert-warning">
-          <svg class="alert-icon" viewBox="0 0 16 16">
-            <path
-              fill="currentColor"
-              d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047ZM8 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            />
-          </svg>
-          <div class="alert-content">
-            <div class="alert-title">
-              <a href="#" class="alert-link">AI-detected potential malware</a>
+          <div class="alert-item alert-gray">
+            <svg class="alert-icon" viewBox="0 0 16 16">
+              <path
+                fill="currentColor"
+                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14A6 6 0 1 1 8 2a6 6 0 0 1 0 12zm0-9a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1zm0-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+              />
+            </svg>
+            <div class="alert-content">
+              <div class="alert-title">Copyleft License</div>
+              <div class="alert-description">
+                (Experimental) Copyleft license information was found.
+              </div>
             </div>
-            <div class="alert-description"></div>
           </div>
         </div>
       </div>
@@ -1017,5 +1270,57 @@
         </div>
       </div>
     </footer>
+    <script>
+      // Lấy tất cả các tab và nội dung
+      const tabs = document.querySelectorAll(".tab");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      // Hàm để ẩn tất cả nội dung tab
+      function hideAllTabContents() {
+        tabContents.forEach((content) => {
+          content.style.display = "none";
+        });
+      }
+
+      // Hàm để bỏ active tất cả các tab
+      function removeAllActiveTabs() {
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+      }
+
+      // Thêm sự kiện click cho mỗi tab
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Bỏ active tất cả tab
+          removeAllActiveTabs();
+          // Ẩn tất cả nội dung
+          hideAllTabContents();
+
+          // Thêm active cho tab được click
+          tab.classList.add("active");
+
+          // Hiển thị nội dung tương ứng
+          const targetId = tab.getAttribute("data-tab");
+          const targetContent = document.getElementById(targetId);
+          if (targetContent) {
+            targetContent.style.display = "block";
+          }
+        });
+      });
+
+      // Hiển thị tab đầu tiên khi trang được load
+      window.addEventListener("load", () => {
+        hideAllTabContents();
+        removeAllActiveTabs();
+        tabs[0].classList.add("active");
+        const firstTabContent = document.getElementById(
+          tabs[0].getAttribute("data-tab")
+        );
+        if (firstTabContent) {
+          firstTabContent.style.display = "block";
+        }
+      });
+    </script>
   </body>
 </html>
