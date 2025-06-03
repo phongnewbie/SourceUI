@@ -134,11 +134,12 @@ a {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .label-text {
-  margin-right: 4px;
+  margin-right: 8px;
 }
 
 .info-icon {
@@ -147,11 +148,11 @@ a {
   justify-content: center;
   width: 16px;
   height: 16px;
-  background: #e5e7eb;
+  background: #f3f4f6;
   border-radius: 50%;
   font-size: 12px;
-  cursor: help;
   color: #6b7280;
+  cursor: help;
 }
 
 .input-field {
