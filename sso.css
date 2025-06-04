@@ -322,10 +322,13 @@ body {
   color: #7c3aed;
 }
 .title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 24px;
   text-align: center;
+
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
 }
 
 .form-group {
